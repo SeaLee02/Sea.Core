@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Api", "Sea.Core.Api\Sea.Core.Api.csproj", "{BF9692A1-6405-4E6B-9EF3-286E88B23EE2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Extensions", "Sea.Core.Extensions\Sea.Core.Extensions.csproj", "{6E669CE4-CF46-4107-8003-52C7048A2EF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Api", "src\Sea.Core.Api\Sea.Core.Api.csproj", "{BF9692A1-6405-4E6B-9EF3-286E88B23EE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Extensions", "src\Sea.Core.Extensions\Sea.Core.Extensions.csproj", "{6E669CE4-CF46-4107-8003-52C7048A2EF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Entity", "Src\Sea.Core.Entity\Sea.Core.Entity.csproj", "{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.DataAccess", "Src\Sea.Core.DataAccess\Sea.Core.DataAccess.csproj", "{FB15BB08-C109-4A59-8D24-37CDDE52447B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Application", "Src\Sea.Core.Application\Sea.Core.Application.csproj", "{8F2F2715-3C12-4F68-861C-9F654B97F0E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Util", "Src\Sea.Core.Util\Sea.Core.Util.csproj", "{C317D169-101C-410B-87D3-DC13A74E6C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +31,33 @@ Global
 		{6E669CE4-CF46-4107-8003-52C7048A2EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E669CE4-CF46-4107-8003-52C7048A2EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E669CE4-CF46-4107-8003-52C7048A2EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB15BB08-C109-4A59-8D24-37CDDE52447B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB15BB08-C109-4A59-8D24-37CDDE52447B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB15BB08-C109-4A59-8D24-37CDDE52447B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB15BB08-C109-4A59-8D24-37CDDE52447B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2F2715-3C12-4F68-861C-9F654B97F0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2F2715-3C12-4F68-861C-9F654B97F0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2F2715-3C12-4F68-861C-9F654B97F0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2F2715-3C12-4F68-861C-9F654B97F0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C317D169-101C-410B-87D3-DC13A74E6C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C317D169-101C-410B-87D3-DC13A74E6C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C317D169-101C-410B-87D3-DC13A74E6C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C317D169-101C-410B-87D3-DC13A74E6C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF9692A1-6405-4E6B-9EF3-286E88B23EE2} = {FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}
+		{6E669CE4-CF46-4107-8003-52C7048A2EF5} = {FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}
+		{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8} = {FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}
+		{FB15BB08-C109-4A59-8D24-37CDDE52447B} = {FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}
+		{8F2F2715-3C12-4F68-861C-9F654B97F0E1} = {FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}
+		{C317D169-101C-410B-87D3-DC13A74E6C9A} = {FB7A26D2-A0EA-4B8F-9DE3-A08BC07363B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {44A295E1-87C0-4D92-8222-F2C2A8446B50}
