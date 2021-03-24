@@ -1,9 +1,16 @@
 ﻿################################################################################
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
-
+*.suo
+*.user
 /Sea.Core/.vs/Sea.Core/v16
 /Sea.Core/Sea.Core.Api/bin/Debug/net5.0
 /Sea.Core/Sea.Core.Api/obj
 /Sea.Core/Sea.Core.Extensions/obj
 /Sea.Core/.vs
+/Sea.Core/Src/Sea.Core.Util/obj
+/Sea.Core/Src/Sea.Core.Entity/obj
+bin
+obj
+/Sea.Core/Src/Sea.Core.Application/obj
+/Sea.Core/Src/Sea.Core.DataAccess/obj
