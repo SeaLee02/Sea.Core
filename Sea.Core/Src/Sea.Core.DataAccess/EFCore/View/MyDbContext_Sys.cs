@@ -10,13 +10,13 @@ namespace Sea.Core.Entity
     public partial class MyDbContext
     {
 
-        public DbSet<ViewDemoClass> ViewDemoClass();
+        //public DbSet<ViewDemoClass> ViewDemoClass { get; set; }
 
 
         /// <summary>
-        /// 
+        ///  5.0 改成 DbSet
         /// </summary>
-		//public DbQuery<ViewDemoClass> ViewDemoClass { get; set; }
+        //public DbQuery<ViewDemoClass> ViewDemoClass { get; set; }
 
 
     }

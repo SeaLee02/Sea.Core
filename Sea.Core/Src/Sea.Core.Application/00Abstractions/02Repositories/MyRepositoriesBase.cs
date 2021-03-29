@@ -6,6 +6,7 @@ using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,7 +63,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         public virtual async Task<TView> GetViewDtoAsync(TPrimaryKey primaryKey)
         {
             Expression<Func<TView, bool>> func = this.CreateViewEqualityExpressionForId(primaryKey);
-            TView view = _db.Query<TView>().FirstOrDefault(func);
+            TView view = _db.Set<TView>().FirstOrDefault(func);
             return await Task.FromResult(view);
         }
 
@@ -106,7 +107,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>分页对象</returns>
         public virtual async Task<MyPagedResult<TView>> GetViewPageAsync(PagedInputDto pagedInputDto)
         {
-            MyPagedResult<TView> pageResult = await _db.Query<TView>().GetPageAsync<TView, TView>(pagedInputDto);
+            MyPagedResult<TView> pageResult = await _db.Set<TView>().GetPageAsync<TView, TView>(pagedInputDto);
             return pageResult;
         }
 
@@ -150,7 +151,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>分页对象</returns>
         public virtual async Task<MyPagedResult<TEntityDto>> GetPageAsync(PagedInputDto pagedInputDto)
         {
-            var pageResult = await _db.Query<TEntity>().GetPageAsync<TEntity, TEntityDto>(pagedInputDto);
+            var pageResult = await _db.Set<TEntity>().GetPageAsync<TEntity, TEntityDto>(pagedInputDto);
             return pageResult;
         }
 

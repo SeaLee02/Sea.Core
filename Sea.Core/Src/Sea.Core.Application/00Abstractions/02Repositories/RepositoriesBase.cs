@@ -64,7 +64,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         {
             var db = this._dbContextProvider.GetDbContext();
             Expression<Func<TView, bool>> func = this.CreateViewEqualityExpressionForId(primaryKey);
-            TView view = db.Query<TView>().FirstOrDefault(func);
+            TView view = db.Set<TView>().FirstOrDefault(func);
             return await Task.FromResult(view);
         }
 
@@ -109,7 +109,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         public virtual async Task<MyPagedResult<TView>> GetViewPageAsync(PagedInputDto pagedInputDto)
         {
             var db = this._dbContextProvider.GetDbContext();
-            MyPagedResult<TView> pageResult = await db.Query<TView>().GetPageAsync<TView, TView>(pagedInputDto);
+            MyPagedResult<TView> pageResult = await db.Set<TView>().GetPageAsync<TView, TView>(pagedInputDto);
             return pageResult;
         }
 
@@ -154,7 +154,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         public virtual async Task<MyPagedResult<TEntityDto>> GetPageAsync(PagedInputDto pagedInputDto)
         {
             var db = this._dbContextProvider.GetDbContext();
-            var pageResult = await db.Query<TEntity>().GetPageAsync<TEntity, TEntityDto>(pagedInputDto);
+            var pageResult = await db.Set<TEntity>().GetPageAsync<TEntity, TEntityDto>(pagedInputDto);
             return pageResult;
         }
 
