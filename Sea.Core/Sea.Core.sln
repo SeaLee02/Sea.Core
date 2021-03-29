@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Api", "src\Sea.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Extensions", "src\Sea.Core.Extensions\Sea.Core.Extensions.csproj", "{6E669CE4-CF46-4107-8003-52C7048A2EF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Entity", "Src\Sea.Core.Entity\Sea.Core.Entity.csproj", "{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Entity", "Src\Sea.Core.Entity\Sea.Core.Entity.csproj", "{EE5A614B-EF41-41DF-A11D-FA48CE5F16D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.DataAccess", "Src\Sea.Core.DataAccess\Sea.Core.DataAccess.csproj", "{FB15BB08-C109-4A59-8D24-37CDDE52447B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.DataAccess", "Src\Sea.Core.DataAccess\Sea.Core.DataAccess.csproj", "{FB15BB08-C109-4A59-8D24-37CDDE52447B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Application", "Src\Sea.Core.Application\Sea.Core.Application.csproj", "{8F2F2715-3C12-4F68-861C-9F654B97F0E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Application", "Src\Sea.Core.Application\Sea.Core.Application.csproj", "{8F2F2715-3C12-4F68-861C-9F654B97F0E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sea.Core.Util", "Src\Sea.Core.Util\Sea.Core.Util.csproj", "{C317D169-101C-410B-87D3-DC13A74E6C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sea.Core.Util", "Src\Sea.Core.Util\Sea.Core.Util.csproj", "{C317D169-101C-410B-87D3-DC13A74E6C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
