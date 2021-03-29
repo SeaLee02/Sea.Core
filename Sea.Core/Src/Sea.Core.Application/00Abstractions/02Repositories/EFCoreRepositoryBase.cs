@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sea.Core.Application.Abstractions.Repositories.Base;
-using Sea.Core.Entity.Framework.Entity.Abstractions;
+using Sea.Core.Entity.Framework;
 using Sea.Core.Util.Extensions;
 using System;
 using System.Collections.Generic;

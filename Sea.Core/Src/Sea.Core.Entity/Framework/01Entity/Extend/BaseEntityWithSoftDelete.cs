@@ -5,55 +5,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Entity.Framework.Entity.Extend
+namespace Sea.Core.Entity.Framework
 {
     /// <summary>
-    /// 不包含软删除的基类
+    /// 软删除基类
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
-    public class EntityBase<TKey> : Entity<TKey>
+    public abstract class BaseEntityWithSoftDelete<TKey> : EntityWithSoftDelete<TKey>
     {
         /// <summary>
         /// 创建时间
         /// </summary>
         [Column("CreateTime")]
-        public DateTime CreateTime { get; set; } = DateTime.Now;
+        public  virtual DateTime CreateTime { get; set; } = DateTime.Now;
 
         /// <summary>
         /// 创建人
         /// </summary>
         [Column("CreateId")]
-        public Guid CreateId { get; set; }
+        public virtual Guid CreateId { get; set; }
 
         /// <summary>
         /// 修改时间
         /// </summary>
         [Column("ModifyTime")]
-        public DateTime? ModifyTime { get; set; } = DateTime.Now;
+        public virtual DateTime? ModifyTime { get; set; } = DateTime.Now;
 
         /// <summary>
         /// 修改人
         /// </summary>
         [Column("ModifyId")]
-        public Guid ModifyId { get; set; }
+        public virtual Guid ModifyId { get; set; }
 
         /// <summary>
         /// 创建人名称
         /// </summary>
         [NotMapped]
-        public string CreateName { get; set; }
+        public virtual string CreateName { get; set; }
 
         /// <summary>
         /// 修改人
         /// </summary>
-       [NotMapped]
-        public string ModifyName { get; set; }
+        [NotMapped]
+        public virtual string ModifyName { get; set; }
     }
 
     /// <summary>
-    /// 基础
+    /// 包含软删除功能的实体基类
     /// </summary>
-    public class EntityBase : EntityBase<Guid>
+    public abstract class EntityBaseWithSoftDelete : BaseEntityWithSoftDelete<Guid>
     {
 
     }

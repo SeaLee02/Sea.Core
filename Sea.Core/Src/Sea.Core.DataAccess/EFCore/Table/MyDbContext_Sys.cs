@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sea.Core.Entity.Sys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace Sea.Core.Entity
 {
     public partial class MyDbContext
     {
+        /// <summary>
+        /// 用户信息
+        /// </summary>
+       public DbSet<UserEntity> UserEntitys { get; set; }
+
         //      /// <summary>
         //      /// 班级表
         //      /// </summary>

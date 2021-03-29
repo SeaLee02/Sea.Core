@@ -1,4 +1,4 @@
-﻿using Sea.Core.Entity.Framework.Entity.Abstractions;
+﻿using Sea.Core.Entity.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;

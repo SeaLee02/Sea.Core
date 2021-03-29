@@ -1,17 +1,17 @@
-﻿using Sea.Core.Entity.Framework.Entity.Abstractions;
+﻿using Sea.Core.Entity.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Entity.Framework.Entity
+namespace Sea.Core.Entity.Framework
 {
     /// <summary>
     /// 包含指定类型主键的实体
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
-    public class Entity<TPrimaryKey> : IEntity<TPrimaryKey>
+    public abstract class _Entity<TPrimaryKey> : IEntity<TPrimaryKey>
     {
         /// <summary>
         /// 主键
@@ -57,7 +57,7 @@ namespace Sea.Core.Entity.Framework.Entity
     /// <summary>
     /// 主键类型为GUID的实体
     /// </summary>
-    public class Entity : Entity<Guid>
+    public abstract class _Entity : _Entity<Guid>
     {
 
     }

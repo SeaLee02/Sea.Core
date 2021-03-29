@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,12 @@ namespace Sea.Core.Entity
             //    DbFilterConfiguration.InitGobalFilter(entityType, modelBuilder);
             //    //ViewConfiguration.InitViews(entityType); // 初始化视图
             //}
+
+            // 配置entity
+            Assembly configAssembly = Assembly.Load("Sea.Core.Entity");
+
+            modelBuilder.ApplyConfigurationsFromAssembly(configAssembly);
+
         }
 
 

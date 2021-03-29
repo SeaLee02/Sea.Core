@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Sea.Core.Entity;
-using Sea.Core.Entity.Framework.Entity.Abstractions;
+using Sea.Core.Entity.Framework;
 using Sea.Core.Util.Extensions;
 using Sea.Core.Util.Framework.Dto;
 using System;

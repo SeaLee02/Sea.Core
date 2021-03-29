@@ -5,9 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="01Sys\01Entity\" />
-    <Folder Include="01Sys\02Dto\" />
-    <Folder Include="Framework\02Dto\" />
     <Folder Include="Framework\03View\" />
     <Folder Include="Framework\04Function\" />
     <Folder Include="Framework\05Proc\" />
