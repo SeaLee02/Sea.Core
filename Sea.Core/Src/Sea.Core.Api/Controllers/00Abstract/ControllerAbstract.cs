@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Api.Controllers.Abstract
+namespace Sea.Core.Api.Controllers
 {
     /// <summary>
     /// 控制器基础类
     /// </summary>
     [ApiController]
     [Route("api/[area]/[controller]/[action]")]
-    //[Authorize(Permissions.Name)]
+    [Authorize(Permissions.Name)]
     public abstract class ControllerAbstract : ControllerBase
     { 
         
