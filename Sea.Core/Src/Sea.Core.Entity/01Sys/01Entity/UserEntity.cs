@@ -34,9 +34,9 @@ namespace Sea.Core.Entity.Sys
 
 
         /// <summary>
-        /// 登录名
+        /// 状态
         /// </summary>
-        [Column("状态")]
+        [Column("Status")]
         public int? Status { get; set; }
 
 
@@ -67,7 +67,7 @@ namespace Sea.Core.Entity.Sys
         /// <summary>
         /// 生日
         /// </summary>
-        [Column("LoginName")]
+        [Column("Birth")]
         public DateTime? Birth { get; set; }
 
         /// <summary>

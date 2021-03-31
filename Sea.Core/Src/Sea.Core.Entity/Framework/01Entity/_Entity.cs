@@ -57,7 +57,7 @@ namespace Sea.Core.Entity.Framework
     /// <summary>
     /// 主键类型为GUID的实体
     /// </summary>
-    public abstract class _Entity : _Entity<Guid>
+    public abstract class _Entity : _Entity<string>
     {
 
     }

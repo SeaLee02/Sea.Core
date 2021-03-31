@@ -15,6 +15,11 @@ namespace Sea.Core.Entity
     public partial class MyDbContext : DbContext
     {
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
+        //}
+
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
             //DbFilterConfiguration.InitContextFilter(this);

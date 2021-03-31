@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Sea.Core.Application.Abstractions.Repositories
 {
     /// <summary>
@@ -19,8 +20,8 @@ namespace Sea.Core.Application.Abstractions.Repositories
     /// <typeparam name="TPrimaryKey">主键的类型</typeparam>
     /// <typeparam name="TEntityDto">实体展示的类型</typeparam>
     /// <typeparam name="TViewDto">viewDto的展示</typeparam>
-    public class RepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView> :
-        EFCoreRepository<MyDbContext, TEntity, TPrimaryKey>,
+    public class MyRepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView> :
+        EFCoreRepositoryBase<MyDbContext, TEntity, TPrimaryKey>,
         IRepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView>
         where TEntity : class, IEntity<TPrimaryKey>
         where TEntityDto : class, IEntity<TPrimaryKey>
@@ -31,16 +32,16 @@ namespace Sea.Core.Application.Abstractions.Repositories
         //private readonly MyDbContext _db;
         private readonly IMapper _mapper;
 
-        private readonly IDbContextProvider<MyDbContext> _dbContextProvider;
+        private readonly MyDbContext _db;
 
         /// <summary>
         /// 构造函数，传递上下文
         /// </summary>
         /// <param name="dbContext"></param>
         /// <param name="mapper"></param>
-        public RepositoriesBase(IDbContextProvider<MyDbContext> dbContextProvider, IMapper mapper) : base(dbContextProvider)
+        public MyRepositoriesBase(MyDbContext db, IMapper mapper) : base(db)
         {
-            this._dbContextProvider = dbContextProvider;
+            this._db = db;
             _mapper = mapper;
         }
 
@@ -63,9 +64,8 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>dto对象</returns>
         public virtual async Task<TView> GetViewDtoAsync(TPrimaryKey primaryKey)
         {
-            var db = this._dbContextProvider.GetDbContext();
             Expression<Func<TView, bool>> func = this.CreateViewEqualityExpressionForId(primaryKey);
-            TView view = db.Set<TView>().FirstOrDefault(func);
+            TView view = _db.Set<TView>().FirstOrDefault(func);
             return await Task.FromResult(view);
         }
 
@@ -109,8 +109,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>分页对象</returns>
         public virtual async Task<MyPagedResult<TView>> GetViewPageAsync(PagedInputDto pagedInputDto)
         {
-            var db = this._dbContextProvider.GetDbContext();
-            MyPagedResult<TView> pageResult = await db.Set<TView>().GetPageAsync<TView, TView>(pagedInputDto);
+            MyPagedResult<TView> pageResult = await _db.Set<TView>().GetPageAsync<TView, TView>(pagedInputDto);
             return pageResult;
         }
 
@@ -154,8 +153,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>分页对象</returns>
         public virtual async Task<MyPagedResult<TEntityDto>> GetPageAsync(PagedInputDto pagedInputDto)
         {
-            var db = this._dbContextProvider.GetDbContext();
-            var pageResult = await db.Set<TEntity>().GetPageAsync<TEntity, TEntityDto>(pagedInputDto);
+            var pageResult = await _db.Set<TEntity>().GetPageAsync<TEntity, TEntityDto>(pagedInputDto);
             return pageResult;
         }
 
@@ -187,7 +185,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <param name="primaryKey">获取对象转成dto</param>
         /// <returns>dto对象</returns>
         public async Task<TEntityDto> GetDtoAsync(TPrimaryKey primaryKey)
-        {      
+        {
             var dto = await this.GetDtoAsync<TEntityDto>(primaryKey);
             return dto;
         }
@@ -200,10 +198,9 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>对应的dto类型的值</returns>
         public virtual async Task<TDto> GetDtoAsync<TDto>(TPrimaryKey primaryKey)
         {
-            var db = this._dbContextProvider.GetDbContext();
             var entity = await base.GetAsync(primaryKey);
 
-            foreach (var navgation in db.Entry(entity).Navigations)
+            foreach (var navgation in _db.Entry(entity).Navigations)
             {
                 await navgation.LoadAsync();
             }
@@ -219,10 +216,9 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>展示的dto</returns>
         public virtual async Task<TEntityDto> CreateByDtoAsync(TCreateInput input)
         {
-            var db = this._dbContextProvider.GetDbContext();
             var entity = this._mapper.Map<TEntity>(input);
             entity = await base.InsertAsync(entity);
-            await db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
             return _mapper.Map<TEntityDto>(entity);
         }
 
@@ -233,13 +229,12 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>展示的Dto</returns>
         public virtual async Task<TEntityDto> UpdateByDtoAsync(TUpdateInput input)
         {
-            var db = this._dbContextProvider.GetDbContext();
             // 找出实体
             var oldEntity = await base.GetAsync(input.Id);
+
             // 对比变化 只更新不为空的属性值
             var entity = input.ObjectMapTo(oldEntity);
             entity = await base.UpdateAsync(entity);
-            await db.SaveChangesAsync();
             return _mapper.Map<TEntityDto>(entity);
         }
 
@@ -251,12 +246,10 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <returns>任务</returns>
         public virtual async Task BatchDeleteAsync(TPrimaryKey[] ids)
         {
-            var db = this._dbContextProvider.GetDbContext();
             foreach (var id in ids)
             {
                 await this.DeleteAsync(id);
             }
-            await db.SaveChangesAsync();
         }
 
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sea.Core.Application.AppServices.Sys;
+using Sea.Core.Entity.Sys;
 using Sea.Core.Entity.Sys.Dto;
 using Sea.Core.Entity.Sys.View;
 using Sea.Core.Util.Framework.Dto;
@@ -30,7 +31,7 @@ namespace Sea.Core.Api.Controllers
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
         [HttpGet]
-        public async Task<UserDto> GetDto(Guid id)
+        public async Task<UserDto> GetDto(string id)
         {
             var dto = await this._userAppService.GetDto(id);
             return await Task.FromResult(dto);
@@ -42,7 +43,7 @@ namespace Sea.Core.Api.Controllers
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
         [HttpGet]
-        public async Task<ViewUser> GetViewDto(Guid id)
+        public async Task<ViewUser> GetViewDto(string id)
         {
             var dto = await this._userAppService.GetViewDto(id);
             return dto;
@@ -116,6 +117,13 @@ namespace Sea.Core.Api.Controllers
         public async Task BatchDelete(DeleteDto deleteDto)
         {
             await this._userAppService.BatchDelete(deleteDto);
+        }
+
+        [HttpGet]
+        public async Task<List<UserEntity>> GetAll123()
+        {
+            var list =await this._userAppService.GetAll123();
+            return await Task.FromResult(list);
         }
     }
 }

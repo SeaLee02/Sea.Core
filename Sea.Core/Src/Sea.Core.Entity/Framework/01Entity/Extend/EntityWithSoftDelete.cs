@@ -30,14 +30,14 @@ namespace Sea.Core.Entity.Framework
         /// 删除人
         /// </summary>
         [NotMapped]
-        public virtual Guid DeleteName { get; set; }
+        public virtual string DeleteName { get; set; }
 
     }
 
     /// <summary>
     /// 主键类型GUID的软删除实体
     /// </summary>
-    public abstract class EntityWithSoftDelete : EntityWithSoftDelete<Guid>
+    public abstract class EntityWithSoftDelete : EntityWithSoftDelete<string>
     {
 
     }

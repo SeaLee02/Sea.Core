@@ -23,7 +23,7 @@ namespace Sea.Core.Entity.Framework
         /// 创建人
         /// </summary>
         [Column("CreateId")]
-        public virtual Guid CreateId { get; set; }
+        public virtual string CreateId { get; set; }
 
         /// <summary>
         /// 修改时间
@@ -35,7 +35,7 @@ namespace Sea.Core.Entity.Framework
         /// 修改人
         /// </summary>
         [Column("ModifyId")]
-        public virtual Guid ModifyId { get; set; }
+        public virtual string ModifyId { get; set; }
 
         /// <summary>
         /// 创建人名称
@@ -53,7 +53,7 @@ namespace Sea.Core.Entity.Framework
     /// <summary>
     /// 包含软删除功能的实体基类
     /// </summary>
-    public abstract class EntityBaseWithSoftDelete : BaseEntityWithSoftDelete<Guid>
+    public abstract class EntityBaseWithSoftDelete : BaseEntityWithSoftDelete<string>
     {
 
     }

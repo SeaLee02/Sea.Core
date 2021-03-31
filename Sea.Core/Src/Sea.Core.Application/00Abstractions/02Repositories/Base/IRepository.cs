@@ -6,10 +6,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Application.Abstractions.Repositories.Base
+namespace Sea.Core.Application.Abstractions.Repositories
 {
     /// <summary>
-    /// 基本仓储接口,基本的方法
+    /// 最基本的增删改查
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TPrimaryKey"></typeparam>

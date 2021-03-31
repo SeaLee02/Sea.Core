@@ -1,5 +1,4 @@
 ﻿using Sea.Core.Application.Abstractions.Repositories;
-using Sea.Core.Application.Abstractions.Repositories.Base;
 using Sea.Core.Entity.Sys;
 using Sea.Core.Entity.Sys.Dto;
 using Sea.Core.Entity.Sys.View;
@@ -14,7 +13,7 @@ namespace Sea.Core.Application.Repositories.Sys
     /// <summary>
     /// 用户仓储
     /// </summary>
-    public interface IUserRepository : IRepository<UserEntity, Guid>, IRepositoriesBase<UserEntity, Guid, UserDto,UserCreateDto,UserUpdateDto, ViewUser>
+    public interface IUserRepository : IRepository<UserEntity, string>, IRepositoriesBase<UserEntity, string, UserDto,UserCreateDto,UserUpdateDto, ViewUser>
     {
         
     }

@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Application.Abstractions.Repositories.Base
+namespace Sea.Core.Application.Abstractions.Repositories
 {
 
     /// <summary>
-    /// 
+    /// 最基本的增删改查
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TPrimaryKey"></typeparam>

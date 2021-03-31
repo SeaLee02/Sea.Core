@@ -21,7 +21,7 @@ namespace Sea.Core.Entity.Framework
         /// <summary>
         /// 删除人
         /// </summary>
-        public virtual Guid DeleteName { get; set; }
+        public virtual string DeleteName { get; set; }
 
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Sea.Core.Entity.Framework
         /// <summary>
         /// 创建人
         /// </summary>
-        public virtual Guid CreateId { get; set; }
+        public virtual string CreateId { get; set; }
 
         /// <summary>
         /// 修改时间
@@ -42,7 +42,7 @@ namespace Sea.Core.Entity.Framework
         /// <summary>
         /// 修改人
         /// </summary>
-        public virtual Guid ModifyId { get; set; }
+        public virtual string ModifyId { get; set; }
 
         /// <summary>
         /// 创建人名称
@@ -55,7 +55,7 @@ namespace Sea.Core.Entity.Framework
         public virtual string ModifyName { get; set; }
     }
 
-    public abstract class BaseDto : BaseDto<Guid>
+    public abstract class BaseDto : BaseDto<string>
     {
 
     }

@@ -1,4 +1,5 @@
 ﻿using Sea.Core.Application.Repositories.Sys;
+using Sea.Core.Entity.Sys;
 using Sea.Core.Entity.Sys.Dto;
 using Sea.Core.Entity.Sys.View;
 using Sea.Core.Util.Framework.Dto;
@@ -26,7 +27,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
-        public async Task<UserDto> GetDto(Guid id)
+        public async Task<UserDto> GetDto(string id)
         {
             var dto = await this._userRepository.GetDtoAsync(id);
             return dto;
@@ -37,7 +38,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
-        public async Task<ViewUser> GetViewDto(Guid id)
+        public async Task<ViewUser> GetViewDto(string id)
         {
             var dto = await this._userRepository.GetViewDtoAsync(id);
             return dto;
@@ -104,7 +105,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">实体的id</param>
         /// <returns>task 空值</returns>
-        public async Task Delete(Guid id)
+        public async Task Delete(string id)
         {
             await this._userRepository.DeleteAsync(id);
         }
@@ -118,12 +119,20 @@ namespace Sea.Core.Application.AppServices.Sys
         {
             string strId = deleteDto.Id;
             IEnumerable<string> ids = strId.Split(",").Select(x => x.Replace("'", string.Empty));
-            List<Guid> newIds = new List<Guid>();
+            List<string> newIds = new List<string>();
             foreach (var id in ids)
             {
-                newIds.Add(new Guid(id));
+                newIds.Add(id);
             }
             await this._userRepository.BatchDeleteAsync(newIds.ToArray());
+        }
+
+
+
+        public async Task<List<UserEntity>> GetAll123() 
+        {
+            var list= this._userRepository.GetAll().ToList();
+            return await Task.FromResult(list);
         }
     }
 }

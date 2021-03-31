@@ -5,8 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Application.Abstractions.Repositories.Base
+namespace Sea.Core.Application.Abstractions.Repositories
 {
+    /// <summary>
+    /// 用作依赖注册。需要注册IDbContextProvider 上下文
+    /// </summary>
+    /// <typeparam name="TDbContext"></typeparam>
     public class SimpleDbContextProvider<TDbContext> : IDbContextProvider<TDbContext>
            where TDbContext : DbContext
     {

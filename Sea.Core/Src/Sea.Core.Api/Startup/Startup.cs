@@ -36,13 +36,18 @@ namespace Sea.Core.Api
 
             string path = Configuration.GetConnectionString("MySQLConnection");
 
-            services.AddDbContextPool<MyDbContext>(
-               dbContextOptions => dbContextOptions
-                   .UseMySql(path));
+            services.AddDbContext<MyDbContext>
+             (options => options.UseMySQL(path));
+            //services.AddDbContextPool<MyDbContext>(dbContextOptions => dbContextOptions.UseMySQL(path));
+          
+            //services.AddDbContextPool<MyDbContext>(
+            //   dbContextOptions => dbContextOptions
+            //       .UseMySql(path));
 
-         
- 
-             services.AddSwaggerGen(c =>
+
+            services.AddAutoMapperSetup();
+
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sea.Core.Api", Version = "v1" });
             });

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Sea.Core.Application.Abstractions.Repositories;
-using Sea.Core.Application.Abstractions.Repositories.Base;
 using Sea.Core.Entity;
 using Sea.Core.Entity.Sys;
 using Sea.Core.Entity.Sys.Dto;
@@ -16,7 +15,7 @@ namespace Sea.Core.Application.Repositories.Sys
     /// <summary>
     ///  用户仓储
     /// </summary>
-    public class UserRepository : RepositoriesBase<UserEntity, Guid, UserDto,UserCreateDto,UserUpdateDto,ViewUser>, IUserRepository
+    public class UserRepository : RepositoriesBase<UserEntity, string, UserDto,UserCreateDto,UserUpdateDto,ViewUser>, IUserRepository
     {
         private readonly IDbContextProvider<MyDbContext> _dbContextProvider;
         private readonly IMapper _mapper;
