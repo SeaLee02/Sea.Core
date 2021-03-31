@@ -13,7 +13,7 @@ namespace Sea.Core.Application.AppServices.Sys
     /// <summary>
     /// 用户信息服务
     /// </summary>
-    public interface IUserAppService : IAppServicesBase<UserEntity, Guid, UserDto, ViewUser>
+    public interface IUserAppService : IAppServicesBase<UserEntity, Guid, UserDto,UserCreateDto,UserUpdateDto,ViewUser>
     {
         
     }

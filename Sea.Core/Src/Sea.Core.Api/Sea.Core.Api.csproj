@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sea.Core.Application\Sea.Core.Application.csproj" />
+    <ProjectReference Include="..\Sea.Core.Extensions\Sea.Core.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

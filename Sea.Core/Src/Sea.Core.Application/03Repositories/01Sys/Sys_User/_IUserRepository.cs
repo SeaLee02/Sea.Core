@@ -14,7 +14,7 @@ namespace Sea.Core.Application.Repositories.Sys
     /// <summary>
     /// 用户仓储
     /// </summary>
-    public interface IUserRepository : IRepository<UserEntity, Guid>, IRepositoriesBase<UserEntity, Guid, UserDto, ViewUser>
+    public interface IUserRepository : IRepository<UserEntity, Guid>, IRepositoriesBase<UserEntity, Guid, UserDto,UserCreateDto,UserUpdateDto, ViewUser>
     {
         
     }

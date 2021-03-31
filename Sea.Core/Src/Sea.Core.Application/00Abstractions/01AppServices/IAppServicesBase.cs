@@ -16,9 +16,11 @@ namespace Sea.Core.Application.Abstractions
     /// <typeparam name="TPrimaryKey"></typeparam>
     /// <typeparam name="TEntityDto"></typeparam>
     /// <typeparam name="TView"></typeparam>
-    public interface IAppServicesBase<TEntity, TPrimaryKey, TEntityDto, TView>
+    public interface IAppServicesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView>
       where TEntity : class, IEntity<TPrimaryKey>
       where TEntityDto : class, IEntity<TPrimaryKey>
+      where TCreateInput : class, IEntity<TPrimaryKey>
+      where TUpdateInput : class, IEntity<TPrimaryKey>
       where TView : class, IEntity<TPrimaryKey>
     {
         /// <summary>
@@ -60,14 +62,14 @@ namespace Sea.Core.Application.Abstractions
         /// </summary>
         /// <param name="input">输入对象</param>
         /// <returns>返回输出对象</returns>
-        Task<TEntityDto> CreateByDto(TEntityDto input);
+        Task<TEntityDto> CreateByDto(TCreateInput input);
 
         /// <summary>
         /// 更新
         /// </summary>
         /// <param name="input">更新输入对象</param>
         /// <returns>主键值</returns>
-        Task<TEntityDto> UpdateByDto(TEntityDto input);
+        Task<TEntityDto> UpdateByDto(TUpdateInput input);
 
         /// <summary>
         /// 删除

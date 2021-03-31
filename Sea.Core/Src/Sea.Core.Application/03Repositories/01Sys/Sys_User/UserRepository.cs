@@ -16,7 +16,7 @@ namespace Sea.Core.Application.Repositories.Sys
     /// <summary>
     ///  用户仓储
     /// </summary>
-    public class UserRepository : RepositoriesBase<UserEntity, Guid, UserDto, ViewUser>, IUserRepository
+    public class UserRepository : RepositoriesBase<UserEntity, Guid, UserDto,UserCreateDto,UserUpdateDto,ViewUser>, IUserRepository
     {
         private readonly IDbContextProvider<MyDbContext> _dbContextProvider;
         private readonly IMapper _mapper;

@@ -16,9 +16,9 @@ namespace Sea.Core.Application.AppServices.Sys
     public class UserAppService : IUserAppService
     {
         private readonly IUserRepository _userRepository;
-        public UserAppService(IUserRepository demoStudentRepository)
+        public UserAppService(IUserRepository  userRepository)
         {
-            this._userRepository = demoStudentRepository;
+            this._userRepository = userRepository;
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="input">创建输入实体</param>
         /// <returns>输出dto</returns>
-        public async Task<UserDto> CreateByDto(UserDto input)
+        public async Task<UserDto> CreateByDto(UserCreateDto input)
         {
             var dto = await this._userRepository.CreateByDtoAsync(input);
             return dto;
@@ -93,7 +93,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="input">更新的实体的对象</param>
         /// <returns>更新后的对象</returns>
-        public async Task<UserDto> UpdateByDto(UserDto input)
+        public async Task<UserDto> UpdateByDto(UserUpdateDto input)
         {
             var dto = await this._userRepository.UpdateByDtoAsync(input);
             return dto;

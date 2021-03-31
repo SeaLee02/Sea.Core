@@ -14,9 +14,11 @@ namespace Sea.Core.Application.Abstractions.Repositories
     /// <typeparam name="TEntity">实体</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
     /// <typeparam name="TEntityDto">展示实体</typeparam>
-    public interface IRepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TView>  //应该继承一个接口  里面  有一些扩展方法  IRepositories
+    public interface IRepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView>  //应该继承一个接口  里面  有一些扩展方法  IRepositories
         where TEntity : class, IEntity<TPrimaryKey>
         where TEntityDto : class, IEntity<TPrimaryKey>
+        where TCreateInput : class, IEntity<TPrimaryKey>
+        where TUpdateInput: class, IEntity<TPrimaryKey>
         where TView : class, IEntity<TPrimaryKey>
     {
         /// <summary>
@@ -140,14 +142,14 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// </summary>
         /// <param name="input">输入对象</param>
         /// <returns>返回输出对象</returns>
-        Task<TEntityDto> CreateByDtoAsync(TEntityDto input);
+        Task<TEntityDto> CreateByDtoAsync(TCreateInput input);
 
         /// <summary>
         /// 更新
         /// </summary>
         /// <param name="input">更新输入对象</param>
         /// <returns>主键值</returns>
-        Task<TEntityDto> UpdateByDtoAsync(TEntityDto input);
+        Task<TEntityDto> UpdateByDtoAsync(TUpdateInput input);
 
         /// <summary>
         /// 批量删除

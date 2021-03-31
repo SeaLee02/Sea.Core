@@ -20,11 +20,13 @@ namespace Sea.Core.Application.Abstractions.Repositories
     /// <typeparam name="TPrimaryKey">主键的类型</typeparam>
     /// <typeparam name="TEntityDto">实体展示的类型</typeparam>
     /// <typeparam name="TViewDto">viewDto的展示</typeparam>
-    public class RepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TView> :
+    public class RepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView> :
         EFCoreRepository<MyDbContext, TEntity, TPrimaryKey>,
-        IRepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TView>
+        IRepositoriesBase<TEntity, TPrimaryKey, TEntityDto, TCreateInput, TUpdateInput, TView>
         where TEntity : class, IEntity<TPrimaryKey>
         where TEntityDto : class, IEntity<TPrimaryKey>
+        where TCreateInput : class, IEntity<TPrimaryKey>
+        where TUpdateInput : class, IEntity<TPrimaryKey>
         where TView : class, IEntity<TPrimaryKey>
     {
         //private readonly MyDbContext _db;
@@ -216,7 +218,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// </summary>
         /// <param name="input">创建输入的dto</param>
         /// <returns>展示的dto</returns>
-        public virtual async Task<TEntityDto> CreateByDtoAsync(TEntityDto input)
+        public virtual async Task<TEntityDto> CreateByDtoAsync(TCreateInput input)
         {
             var db = this._dbContextProvider.GetDbContext();
             var entity = this._mapper.Map<TEntity>(input);
@@ -230,7 +232,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// </summary>
         /// <param name="input">输入对象</param>
         /// <returns>展示的Dto</returns>
-        public virtual async Task<TEntityDto> UpdateByDtoAsync(TEntityDto input)
+        public virtual async Task<TEntityDto> UpdateByDtoAsync(TUpdateInput input)
         {
             var db = this._dbContextProvider.GetDbContext();
             // 找出实体

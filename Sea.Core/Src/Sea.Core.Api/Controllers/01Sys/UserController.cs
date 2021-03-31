@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sea.Core.Application.AppServices.Sys;
 using Sea.Core.Entity.Sys.Dto;
@@ -14,6 +15,7 @@ namespace Sea.Core.Api.Controllers
     /// <summary>
     /// 用户信息
     /// </summary>
+    
     public class UserController : SysControllerBase
     {
         private readonly IUserAppService  _userAppService;
@@ -87,7 +89,7 @@ namespace Sea.Core.Api.Controllers
         /// <param name="input">创建输入实体</param>
         /// <returns>输出dto</returns>
         [HttpPost]
-        public async Task<UserDto> CreateByDto(UserDto input)
+        public async Task<UserDto> CreateByDto(UserCreateDto input)
         {
             var dto = await this._userAppService.CreateByDto(input);
             return dto;
@@ -99,7 +101,7 @@ namespace Sea.Core.Api.Controllers
         /// <param name="input">更新的实体的对象</param>
         /// <returns>更新后的对象</returns>
         [HttpPut]
-        public async Task<UserDto> UpdateByDto(UserDto input)
+        public async Task<UserDto> UpdateByDto(UserUpdateDto input)
         {
             var dto = await this._userAppService.UpdateByDto(input);
             return dto;
