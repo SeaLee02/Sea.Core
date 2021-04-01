@@ -254,7 +254,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
 
             var leftExpression = Expression.PropertyOrField(lambdaParam, "Id");
 
-            Expression<Func<object>> closure = () => id;
+            Expression<Func<TPrimaryKey>> closure = () => id;
             var rightExpression = Expression.Convert(closure.Body, leftExpression.Type);
 
             var lambdaBody = Expression.Equal(leftExpression, rightExpression);

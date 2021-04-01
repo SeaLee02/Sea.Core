@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Sea.Core.Application.Abstractions.Repositories;
 using Sea.Core.Entity;
 using Sea.Core.Extensions;
 using System;
@@ -34,17 +36,19 @@ namespace Sea.Core.Api
         {
             services.AddControllers();
 
+            //注册上下文，单独的注入，1:开启。2：关闭此位子，打开AutofacModuleRegister里面的注册上下文
+            services.AddScoped<IDbContextProvider<MyDbContext>, SimpleDbContextProvider<MyDbContext>>();
+
+
             string path = Configuration.GetConnectionString("MySQLConnection");
 
-            services.AddDbContext<MyDbContext>
-             (options => options.UseMySQL(path));
-            //services.AddDbContextPool<MyDbContext>(dbContextOptions => dbContextOptions.UseMySQL(path));
-          
-            //services.AddDbContextPool<MyDbContext>(
-            //   dbContextOptions => dbContextOptions
-            //       .UseMySql(path));
+            services.AddDbContext<MyDbContext>(options =>
+            {
+                options.LogTo(Console.WriteLine);
+                options.UseMySQL(path);
+            });
 
-
+            //mapper 映射
             services.AddAutoMapperSetup();
 
             services.AddSwaggerGen(c =>
@@ -53,12 +57,14 @@ namespace Sea.Core.Api
             });
 
 
-          
+
         }
 
         // 注意在Program.CreateHostBuilder，添加Autofac服务工厂
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            Console.WriteLine("b");
+            //依赖注入
             builder.RegisterModule(new AutofacModuleRegister());
         }
 
@@ -71,6 +77,23 @@ namespace Sea.Core.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sea.Core.Api v1"));
             }
+
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello2");
+            });
+
+
+            //app.Use(async (context, next) =>
+            //{
+            //    //await context.Response.WriteAsync("Hello");
+            //    await next();
+            //    if (context.Response.HasStarted)
+            //    {
+            //        //一旦已经开始输出，则不能再修改响应头的内容
+            //    }
+            //    await context.Response.WriteAsync("Hello2");
+            //});
 
             app.UseHttpsRedirection();
 
