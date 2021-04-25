@@ -15,10 +15,6 @@ namespace Sea.Core.Entity
     public partial class MyDbContext : DbContext
     {
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
-        //}
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
@@ -36,7 +32,7 @@ namespace Sea.Core.Entity
             //    //ViewConfiguration.InitViews(entityType); // 初始化视图
             //}
 
-            // 配置entity
+            // 配置entity,有的类需要配置的,统一配置
             Assembly configAssembly = Assembly.Load("Sea.Core.Entity");
 
             modelBuilder.ApplyConfigurationsFromAssembly(configAssembly);

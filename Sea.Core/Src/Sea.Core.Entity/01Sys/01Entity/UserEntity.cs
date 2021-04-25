@@ -11,7 +11,7 @@ namespace Sea.Core.Entity.Sys
     /// <summary>
     /// 用户信息
     /// </summary>
-    [Table("sys_user")]
+    [Table("Sys_User")]
     public partial class UserEntity: EntityBaseWithSoftDelete
     {
         /// <summary>

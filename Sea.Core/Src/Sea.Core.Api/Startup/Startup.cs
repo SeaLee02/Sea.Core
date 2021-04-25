@@ -37,16 +37,20 @@ namespace Sea.Core.Api
             services.AddControllers();
 
             //注册上下文，单独的注入，1:开启。2：关闭此位子，打开AutofacModuleRegister里面的注册上下文
+            //上下文中构造函数的参数需要注入，后面的事物也需要的(todo) //SimpleDbContextProvider用来依赖注册,不做实际用途
             services.AddScoped<IDbContextProvider<MyDbContext>, SimpleDbContextProvider<MyDbContext>>();
 
 
+            #region 数据库连接
             string path = Configuration.GetConnectionString("MySQLConnection");
-
             services.AddDbContext<MyDbContext>(options =>
             {
                 options.LogTo(Console.WriteLine);
-                options.UseMySQL(path);
+                options.UseSqlServer(path);
+                //options.UseMySQL(path);
             });
+            #endregion
+
 
             //mapper 映射
             services.AddAutoMapperSetup();
@@ -58,6 +62,8 @@ namespace Sea.Core.Api
 
 
 
+            //Apollo:配置中心
+           //consul:服务发现
         }
 
         // 注意在Program.CreateHostBuilder，添加Autofac服务工厂
