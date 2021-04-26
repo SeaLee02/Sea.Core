@@ -15,9 +15,34 @@ namespace Sea.Core.Entity
         /// </summary>
        public DbSet<UserEntity> UserEntitys { get; set; }
 
-        //      /// <summary>
-        //      /// 班级表
-        //      /// </summary>
-        //public DbSet<DemoClassEntity> DemoClass { get; set; }
+        /// <summary>
+        /// 角色表
+        /// </summary>
+        public DbSet<RoleEntity> RoleEntitys { get; set; }
+
+
+        /// <summary>
+        /// 用户角色
+        /// </summary>
+        public DbSet<User2RoleEntity> User2RoleEntitys { get; set; }
+
+
+        /// <summary>
+        /// 基础接口表
+        /// </summary>
+        public DbSet<ModuleEntity> ModuleEntitys { get; set; }
+
+
+        /// <summary>
+        /// 菜单表
+        /// </summary>
+        public DbSet<PermissionEntity> PermissionEntitys { get; set; }
+
+
+        /// <summary>
+        /// 接口权限表
+        /// </summary>
+        public DbSet<Module2PermissionEntity> Module2PermissionEntitys { get; set; }
+
     }
 }

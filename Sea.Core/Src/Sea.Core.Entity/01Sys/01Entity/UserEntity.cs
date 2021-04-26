@@ -1,6 +1,8 @@
-﻿using Sea.Core.Entity.Framework;
+﻿using Microsoft.EntityFrameworkCore;
+using Sea.Core.Entity.Framework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -74,7 +76,17 @@ namespace Sea.Core.Entity.Sys
         /// 地址
         /// </summary>
         [Column("Addr")]
-        public string Addr { get; set; }        
+        public string Addr { get; set; }
+
+        ///// <summary>
+        ///// 测试
+        ///// </summary>
+        //[Column("CS")]
+        ////描述
+        //[Comment("测试")]
+        ////字段长度
+        //[StringLength(200)]
+        //public string CS { get; set; }
 
     }
 }

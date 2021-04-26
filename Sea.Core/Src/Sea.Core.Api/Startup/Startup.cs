@@ -34,6 +34,7 @@ namespace Sea.Core.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllers();
 
             //注册上下文，单独的注入，1:开启。2：关闭此位子，打开AutofacModuleRegister里面的注册上下文
@@ -43,10 +44,11 @@ namespace Sea.Core.Api
 
             #region 数据库连接
             string path = Configuration.GetConnectionString("MySQLConnection");
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             services.AddDbContext<MyDbContext>(options =>
             {
                 options.LogTo(Console.WriteLine);
-                options.UseSqlServer(path);
+                options.UseSqlServer(path, sql => sql.MigrationsAssembly(migrationsAssembly));
                 //options.UseMySQL(path);
             });
             #endregion
