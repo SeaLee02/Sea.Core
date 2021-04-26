@@ -14,8 +14,12 @@ using Microsoft.OpenApi.Models;
 using Sea.Core.Application.Abstractions.Repositories;
 using Sea.Core.Entity;
 using Sea.Core.Extensions;
+using Sea.Core.Extensions.ServiceExtensions;
+using Sea.Core.Util.Configuration;
+using Sea.Core.Util.Extensions;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -34,13 +38,27 @@ namespace Sea.Core.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddControllers();
+            #region 配置帮助类
+            //注册为单例模式
+            services.AddSingleton(new Appsettings(Configuration));
+            //例子：
+            //bool a=  Appsettings.app(new string[] { "Startup", "IdentityServer4", "Enabled" }).ObjToBool();
+            //Appsettings.app<MutiDBOperate>("DBS")
+            #endregion
+
+            // 确保从认证中心返回的ClaimType不被更改，不使用Map映射
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            //内存缓存
+            //services.AddMemoryCacheSetup();  
+            //Redis缓存
+            //services.AddRedisCacheSetup();
+
+
 
             //注册上下文，单独的注入，1:开启。2：关闭此位子，打开AutofacModuleRegister里面的注册上下文
             //上下文中构造函数的参数需要注入，后面的事物也需要的(todo) //SimpleDbContextProvider用来依赖注册,不做实际用途
             services.AddScoped<IDbContextProvider<MyDbContext>, SimpleDbContextProvider<MyDbContext>>();
-
 
             #region 数据库连接
             string path = Configuration.GetConnectionString("MySQLConnection");
@@ -56,6 +74,10 @@ namespace Sea.Core.Api
 
             //mapper 映射
             services.AddAutoMapperSetup();
+
+            //认证
+            services.AddAuthorizationSetup();
+
 
             services.AddSwaggerGen(c =>
             {
