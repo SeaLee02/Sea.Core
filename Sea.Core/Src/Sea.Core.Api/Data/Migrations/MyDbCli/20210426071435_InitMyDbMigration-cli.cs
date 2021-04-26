@@ -148,6 +148,33 @@ namespace Sea.Core.Api.Data.Migrations.MyDbCli
                 {
                     table.PrimaryKey("PK_Sys_User2Role", x => x.Id);
                 });
+
+            
+            migrationBuilder.CreateTable(
+                name: "View_Sys_User",
+                columns: table => new
+                {
+                    LoginName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LoginPwd = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RealName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: true),
+                    Remark = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sex = table.Column<int>(type: "int", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: true),
+                    Birth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Addr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDelete = table.Column<bool>(type: "bit", nullable: false),
+                    DeleteTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModifyTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifyId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -169,6 +196,9 @@ namespace Sea.Core.Api.Data.Migrations.MyDbCli
 
             migrationBuilder.DropTable(
                 name: "Sys_User2Role");
+
+            migrationBuilder.DropTable(
+                name: "View_Sys_User");
         }
     }
 }

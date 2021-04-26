@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sea.Core.Entity.Sys.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,11 @@ namespace Sea.Core.Entity
 {
     public partial class MyDbContext
     {
+      /// <summary>
+      /// 用户视图
+      /// </summary>
+        public DbSet<ViewUser> ViewUser { get; set; }
 
-        //public DbSet<ViewDemoClass> ViewDemoClass { get; set; }
 
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using Sea.Core.Entity.Framework;
+﻿using Microsoft.EntityFrameworkCore;
+using Sea.Core.Entity.Framework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +12,7 @@ namespace Sea.Core.Entity.Sys.View
     /// <summary>
     /// 用户信息
     /// </summary>
-    [Table("view_sys_user")]
+    [Table("View_Sys_User")]
     public partial class ViewUser : EntityBaseWithSoftDelete
     {
         /// <summary>
@@ -33,9 +34,9 @@ namespace Sea.Core.Entity.Sys.View
         public string RealName { get; set; }
 
         /// <summary>
-        /// 登录名
+        /// 状态
         /// </summary>
-        [Column("状态")]
+        [Column("Status")]
         public int? Status { get; set; }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace Sea.Core.Entity.Sys.View
         /// <summary>
         /// 生日
         /// </summary>
-        [Column("LoginName")]
+        [Column("Birth")]
         public DateTime? Birth { get; set; }
 
         /// <summary>

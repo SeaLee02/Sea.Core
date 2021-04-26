@@ -382,6 +382,80 @@ namespace Sea.Core.Api.Data.Migrations.MyDbCli
 
                     b.ToTable("Sys_User");
                 });
+
+            modelBuilder.Entity("Sea.Core.Entity.Sys.View.ViewUser", b =>
+                {
+                    b.Property<string>("Addr")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Addr");
+
+                    b.Property<int?>("Age")
+                        .HasColumnType("int")
+                        .HasColumnName("Age");
+
+                    b.Property<DateTime?>("Birth")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Birth");
+
+                    b.Property<string>("CreateId")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CreateId");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreateTime");
+
+                    b.Property<DateTime?>("DeleteTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeleteTime");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit")
+                        .HasColumnName("IsDelete");
+
+                    b.Property<string>("LoginName")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("LoginName");
+
+                    b.Property<string>("LoginPwd")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("LoginPwd");
+
+                    b.Property<string>("ModifyId")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ModifyId");
+
+                    b.Property<DateTime?>("ModifyTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ModifyTime");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.Property<string>("RealName")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("RealName");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Remark");
+
+                    b.Property<int?>("Sex")
+                        .HasColumnType("int")
+                        .HasColumnName("Sex");
+
+                    b.Property<int?>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("Status");
+
+                    b.ToTable("View_Sys_User");
+
+                    b.ToView("View_Sys_User");
+                });
 #pragma warning restore 612, 618
         }
     }
