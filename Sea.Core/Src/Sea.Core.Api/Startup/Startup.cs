@@ -11,10 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Sea.Core.Application.Abstractions.Repositories;
 using Sea.Core.Entity;
 using Sea.Core.Extensions;
-using Sea.Core.Extensions.ServiceExtensions;
+using Sea.Core.Extensions.Filter;
+using Sea.Core.Util;
 using Sea.Core.Util.Configuration;
 using Sea.Core.Util.Extensions;
 using System;
@@ -50,7 +53,11 @@ namespace Sea.Core.Api
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             //内存缓存
-            //services.AddMemoryCacheSetup();  
+            services.AddMemoryCacheSetup();
+            //需要配置在缓存后面,依赖注入使用
+            services.AddSingleton<ExmailHelper>();
+
+
             //Redis缓存
             //services.AddRedisCacheSetup();
 
@@ -77,7 +84,42 @@ namespace Sea.Core.Api
 
             //认证
             services.AddAuthorizationSetup();
+            //Jwt
+            services.AddAuthentication_JWTSetup();
 
+
+            //关闭自动验证
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+            //添加控制器                      
+            services.AddControllers(o =>
+            {
+                //添加Dto验证
+                o.Filters.Add<ModelActionFilte>();
+
+                //o.Filters.Add(typeof(ModelActionFilte));
+
+                // 全局异常过滤
+                //o.Filters.Add(typeof(GlobalExceptionsFilter));
+
+            }).AddNewtonsoftJson(options =>
+            {
+                //忽略循环引用
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //不使用驼峰样式的key
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                //设置时间格式
+                //options.SerializerSettings.DateFormatString = "yyyy-MM-dd";
+                //忽略Model中为null的属性
+                //options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                //设置本地时间而非UTC时间
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
+            });
+           
+       
 
             services.AddSwaggerGen(c =>
             {
@@ -108,10 +150,10 @@ namespace Sea.Core.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sea.Core.Api v1"));
             }
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hello2");
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello2");
+            //});
 
 
             //app.Use(async (context, next) =>
@@ -125,15 +167,23 @@ namespace Sea.Core.Api
             //    await context.Response.WriteAsync("Hello2");
             //});
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
+            // 先开启认证
+            app.UseAuthentication();
+            // 然后是授权中间件
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                 name: "default",
+                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "areas", "areas",
+                    pattern: "api/{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }

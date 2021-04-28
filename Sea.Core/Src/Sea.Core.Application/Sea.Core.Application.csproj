@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Sea.Core.DataAccess\Sea.Core.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="01AppServices\01Sys\User\Dto\" />
+  </ItemGroup>
+
 </Project>

@@ -25,6 +25,11 @@ namespace Sea.Core.Extensions
             builder.RegisterAssemblyTypes(Assembly.Load("Sea.Core.Application"))
                  .AsImplementedInterfaces()                 
                 .InstancePerDependency().InterceptedBy(typeof(LogAOP)).EnableClassInterceptors();//启用动态代理
+
+
+
+
+
             ////注册上下文，或者在start里面进行注册
             //builder.RegisterType<SimpleDbContextProvider<MyDbContext>>().As<IDbContextProvider<MyDbContext>>().InstancePerDependency();
 

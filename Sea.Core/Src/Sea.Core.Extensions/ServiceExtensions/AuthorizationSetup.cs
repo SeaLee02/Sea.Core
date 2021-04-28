@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Extensions.ServiceExtensions
+namespace Sea.Core.Extensions
 {
     public static class AuthorizationSetup
     {
@@ -85,8 +85,8 @@ namespace Sea.Core.Extensions.ServiceExtensions
 
             //});
 
-            //// 这里冗余写了一次,因为很多人看不到
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //PermissionHandler 里面需要
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // 注入权限处理器
             services.AddScoped<IAuthorizationHandler, PermissionHandler>();

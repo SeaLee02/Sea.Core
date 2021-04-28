@@ -13,7 +13,7 @@ namespace Sea.Core.Api.Controllers
     /// </summary>
     [ApiController]
     [Route("api/[area]/[controller]/[action]")]
-    //[Authorize(Permissions.Name)]
+    [Authorize(Permissions.Name)]
     public abstract class ControllerAbstract : ControllerBase
     { 
         

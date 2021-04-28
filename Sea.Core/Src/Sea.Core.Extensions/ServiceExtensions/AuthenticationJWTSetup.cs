@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sea.Core.Extensions.ServiceExtensions
+namespace Sea.Core.Extensions
 {
     /// <summary>
     /// JWT权限 认证服务
