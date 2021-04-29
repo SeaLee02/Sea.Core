@@ -54,7 +54,7 @@ namespace Sea.Core.Api
 
             //内存缓存
             services.AddMemoryCacheSetup();
-            //需要配置在缓存后面,依赖注入使用
+            //需要配置在缓存后面,依赖注入使用,企业邮件帮助类,依赖注入使用
             services.AddSingleton<ExmailHelper>();
 
 
@@ -72,7 +72,8 @@ namespace Sea.Core.Api
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             services.AddDbContext<MyDbContext>(options =>
             {
-                options.LogTo(Console.WriteLine);
+                //打印SQL语句
+                //options.LogTo(Console.WriteLine);
                 options.UseSqlServer(path, sql => sql.MigrationsAssembly(migrationsAssembly));
                 //options.UseMySQL(path);
             });
@@ -106,7 +107,7 @@ namespace Sea.Core.Api
                 //o.Filters.Add(typeof(GlobalExceptionsFilter));
 
             }).AddNewtonsoftJson(options =>
-            {
+            {                
                 //忽略循环引用
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 //不使用驼峰样式的key

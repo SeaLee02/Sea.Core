@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using Sea.Core.Util.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,28 @@ namespace Sea.Core.Util.Configuration
 
             return "";
         }
+
+
+        /// <summary>
+        /// 封装要操作的字符
+        /// </summary>
+        /// <param name="sections">节点配置</param>
+        /// <returns></returns>
+        public static string app(string sections)
+        {
+            try
+            {
+
+                if (sections.IsNotEmptyOrNull())
+                {
+                    return Configuration[sections];
+                }
+            }
+            catch (Exception) { }
+
+            return "";
+        }
+
 
         /// <summary>
         /// 递归获取配置信息数组
