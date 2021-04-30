@@ -1,4 +1,5 @@
-﻿using Sea.Core.Application.Repositories.Sys;
+﻿using Sea.Core.Application.Abstractions;
+using Sea.Core.Application.Repositories.Sys;
 using Sea.Core.Entity.Sys;
 using Sea.Core.Entity.Sys.Dto;
 using Sea.Core.Entity.Sys.View;
@@ -11,15 +12,12 @@ using System.Threading.Tasks;
 
 namespace Sea.Core.Application.AppServices.Sys
 {
-    /// <summary>
-    /// 用户服务
-    /// </summary>
-    public class UserAppService : IUserAppService
+    public class RoleAppService : AppServicesBase<RoleEntity, string, RoleDto, RoleCreateDto, RoleUpdateDto, ViewRole>, IRoleAppService
     {
-        private readonly IUserRepository _userRepository;
-        public UserAppService(IUserRepository  userRepository)
+        private readonly IRoleRepository  _roleRepository;
+        public RoleAppService(IRoleRepository roleRepository)
         {
-            this._userRepository = userRepository;
+            this._roleRepository = roleRepository;
         }
 
         /// <summary>
@@ -27,9 +25,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
-        public async Task<UserDto> GetDto(string id)
+        public override async Task<RoleDto> GetDto(string id)
         {
-            var dto = await this._userRepository.GetDtoAsync(id);
+            var dto = await this._roleRepository.GetDtoAsync(id);
             return dto;
         }
 
@@ -38,9 +36,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
-        public async Task<ViewUser> GetViewDto(string id)
+        public override async Task<ViewRole> GetViewDto(string id)
         {
-            var dto = await this._userRepository.GetViewDtoAsync(id);
+            var dto = await this._roleRepository.GetViewDtoAsync(id);
             return dto;
         }
 
@@ -49,9 +47,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="pagedInputDto">分页输入的Dto</param>
         /// <returns>分页信息</returns>
-        public async Task<MyPagedResult<ViewUser>> GetViewPage(PagedInputDto pagedInputDto)
+        public override async Task<MyPagedResult<ViewRole>> GetViewPage(PagedInputDto pagedInputDto)
         {
-            var pagedResult = await this._userRepository.GetViewPageAsync(pagedInputDto);
+            var pagedResult = await this._roleRepository.GetViewPageAsync(pagedInputDto);
             return pagedResult;
         }
 
@@ -60,9 +58,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="pagedInputDto">分页输入的Dto</param>
         /// <returns>分页信息</returns>
-        public async Task<MyPagedResult<UserDto>> GetPage(PagedInputDto pagedInputDto)
+        public override async Task<MyPagedResult<RoleDto>> GetPage(PagedInputDto pagedInputDto)
         {
-            var pagedResult = await this._userRepository.GetPageAsync(pagedInputDto);
+            var pagedResult = await this._roleRepository.GetPageAsync(pagedInputDto);
             return pagedResult;
         }
 
@@ -70,9 +68,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// 获取 [用户表] 的所有信息
         /// </summary>
         /// <returns>list集合</returns>
-        public async Task<List<UserDto>> GetAllListDto()
+        public override async Task<List<RoleDto>> GetAllListDto()
         {
-            var listResult = await this._userRepository.GetAllListDtoAsync();
+            var listResult = await this._roleRepository.GetAllListDtoAsync();
             return listResult;
         }
 
@@ -83,9 +81,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="input">创建输入实体</param>
         /// <returns>输出dto</returns>
-        public async Task<UserDto> CreateByDto(UserCreateDto input)
+        public override async Task<RoleDto> CreateByDto(RoleCreateDto input)
         {
-            var dto = await this._userRepository.CreateByDtoAsync(input);
+            var dto = await this._roleRepository.CreateByDtoAsync(input);
             return dto;
         }
 
@@ -94,9 +92,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="input">更新的实体的对象</param>
         /// <returns>更新后的对象</returns>
-        public async Task<UserDto> UpdateByDto(UserUpdateDto input)
+        public override async Task<RoleDto> UpdateByDto(RoleUpdateDto input)
         {
-            var dto = await this._userRepository.UpdateByDtoAsync(input);
+            var dto = await this._roleRepository.UpdateByDtoAsync(input);
             return dto;
         }
 
@@ -105,9 +103,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">实体的id</param>
         /// <returns>task 空值</returns>
-        public async Task Delete(string id)
+        public override async Task Delete(string id)
         {
-            await this._userRepository.DeleteAsync(id);
+            await this._roleRepository.DeleteAsync(id);
         }
 
         /// <summary>
@@ -115,7 +113,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="deleteDto"></param>
         /// <returns></returns>
-        public async Task BatchDelete(DeleteDto deleteDto)
+        public override async Task BatchDelete(DeleteDto deleteDto)
         {
             string strId = deleteDto.Id;
             IEnumerable<string> ids = strId.Split(",").Select(x => x.Replace("'", string.Empty));
@@ -124,15 +122,8 @@ namespace Sea.Core.Application.AppServices.Sys
             {
                 newIds.Add(id);
             }
-            await this._userRepository.BatchDeleteAsync(newIds.ToArray());
+            await this._roleRepository.BatchDeleteAsync(newIds.ToArray());
         }
 
-
-
-        public async Task<List<UserEntity>> GetAll123() 
-        {
-            var list= this._userRepository.GetAll().ToList();
-            return await Task.FromResult(list);
-        }
     }
 }

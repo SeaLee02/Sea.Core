@@ -3,6 +3,7 @@ using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace Sea.Core.Application.Abstractions.Repositories
         where TEntity : class, IEntity<TPrimaryKey>
         where TEntityDto : class, IEntity<TPrimaryKey>
         where TCreateInput : class, IEntity<TPrimaryKey>
-        where TUpdateInput: class, IEntity<TPrimaryKey>
+        where TUpdateInput : class, IEntity<TPrimaryKey>
         where TView : class, IEntity<TPrimaryKey>
     {
         /// <summary>
@@ -157,5 +158,9 @@ namespace Sea.Core.Application.Abstractions.Repositories
         /// <param name="ids">更新输入对象</param>
         /// <returns>r任务</returns>
         Task BatchDeleteAsync(TPrimaryKey[] ids);
+
+
+
+        Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression);
     }
 }

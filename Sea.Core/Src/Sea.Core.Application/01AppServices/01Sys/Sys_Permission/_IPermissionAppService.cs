@@ -10,11 +10,8 @@ using System.Threading.Tasks;
 
 namespace Sea.Core.Application.AppServices.Sys
 {
-    /// <summary>
-    /// 用户信息服务
-    /// </summary>
-    public interface IUserAppService : IAppServicesBase<UserEntity, string, UserDto,UserCreateDto,UserUpdateDto,ViewUser>
+    public interface IPermissionAppService : IAppServicesBase<PermissionEntity, string, PermissionDto, PermissionCreateDto, PermissionUpdateDto, ViewPermission>
     {
-        public Task<List<UserEntity>> GetAll123();   
+
     }
 }

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using Sea.Core.Util;
+using Sea.Core.Application.AppServices.Sys;
 
 namespace Sea.Core.Api.Controllers.Sys
 {
@@ -20,9 +21,10 @@ namespace Sea.Core.Api.Controllers.Sys
     /// </summary>
     public class LoginController : SysControllerBase
     {
-
-        public LoginController()
+        private readonly IUserAppService _userAppService;        
+        public LoginController(IUserAppService userAppService)
         {
+            this._userAppService = userAppService;
         }
 
 
@@ -37,7 +39,10 @@ namespace Sea.Core.Api.Controllers.Sys
         public async Task<MessageModel<JwtTokenOutDto>> JwtToken(JwtTokenInDto dto)
         {
             string jwt = string.Empty;
+            dto.Pass = MD5Helper.MD5Encrypt32(dto.Pass);
 
+
+            //var user = await _userAppService.get;
 
             return await Task.FromResult(new MessageModel<JwtTokenOutDto>()
             {
