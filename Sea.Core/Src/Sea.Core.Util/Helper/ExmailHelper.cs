@@ -213,7 +213,6 @@ namespace Sea.Core.Util
         #endregion
 
         #region 邮件组
-
         /// <summary>
         /// 创建邮组
         /// </summary>
@@ -227,6 +226,58 @@ namespace Sea.Core.Util
             {
                 this.Errmsg = model.Errmsg;
                 throw new Exception($"创建邮箱组失败:{model.Errcode}-{this.Errmsg}");
+            }
+            return await Task.FromResult(model);
+        }
+
+
+        /// <summary>
+        /// 更新邮组
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public async Task<GroupModel> UpdateGroup(CreateGroupModel dto)
+        {
+            string url = $"https://api.exmail.qq.com/cgi-bin/group/update?access_token={this.Email_token}";
+            GroupModel model = await HttpHelper.PostHttpAsync<GroupModel, CreateGroupModel>(url, dto);
+            if (model.Errcode != 0)
+            {
+                this.Errmsg = model.Errmsg;
+                throw new Exception($"更新邮箱组失败:{model.Errcode}-{this.Errmsg}");
+            }
+            return await Task.FromResult(model);
+        }
+
+        /// <summary>
+        /// 删除邮组
+        /// </summary>
+        /// <param name="userId">用户UserId</param>
+        /// <returns></returns>
+        public async Task<ExmailModel> DelGroup(string groupid)
+        {
+            string url = $"https://api.exmail.qq.com/cgi-bin/group/delete?access_token={this.Email_token}&groupid={groupid}";
+            ExmailModel model = await HttpHelper.GetHttpAsync<ExmailModel>(url);
+            if (model.Errcode != 0)
+            {
+                this.Errmsg = model.Errmsg;
+                throw new Exception($"删除邮组失败:{model.Errcode}-{this.Errmsg}");
+            }
+            return await Task.FromResult(model);
+        }
+
+        /// <summary>
+        /// 获取邮组
+        /// </summary>
+        /// <param name="userId">用户UserId</param>
+        /// <returns></returns>
+        public async Task<GroupInfoModel> GetGroup(string groupid)
+        {
+            string url = $"https://api.exmail.qq.com/cgi-bin/group/get?access_token={this.Email_token}&groupid={groupid}";
+            GroupInfoModel model = await HttpHelper.GetHttpAsync<GroupInfoModel>(url);
+            if (model.Errcode != 0)
+            {
+                this.Errmsg = model.Errmsg;
+                throw new Exception($"获取用户失败:{model.Errcode}-{this.Errmsg}");
             }
             return await Task.FromResult(model);
         }

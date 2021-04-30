@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sea.Core.Util;
-using Sea.Core.Util.Helper.ExamilModel;
+using Sea.Core.Util.Helper.ExmailModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +24,12 @@ namespace Sea.Core.Api.Controllers.Sys
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task GetTest(CreateGroupModel dto)
+        public async Task<IActionResult> GetTest(CreateGroupModel dto)
         {
             Console.WriteLine("---------------");
             dto.Department[0] = 5394703153207343904;
-             var dd = await _exmailHelper.CreateGroup(dto);
-            string a = "";
+             var dd = await _exmailHelper.UpdateGroup(dto);
+            return new JsonResult(dd);
 
         }
 

@@ -80,4 +80,49 @@ namespace Sea.Core.Util.Helper.ExmailModel
 
 
     }
+
+    /// <summary>
+    /// 获取邮件组信息
+    /// </summary>
+    public class GroupInfoModel : ExmailModel 
+    {
+        /// <summary>
+        /// 邮件组Id
+        /// </summary>
+        public string GroupId { get; set; }
+
+        /// <summary>
+        /// 邮件组名称
+        /// </summary>
+        public string GroupName { get; set; }
+
+        /// <summary>
+        /// 成员帐号
+        /// </summary>
+        public List<string> UserList { get; set; }
+
+        /// <summary>
+        /// 邮件群组账号
+        /// </summary>
+        public List<string> GroupList { get; set; }
+
+        /// <summary>
+        /// 部门id
+        /// </summary>
+        public List<long> Department { get; set; }
+
+        /// <summary>
+        /// 群发权限。0: 企业成员, 1任何人， 2:组内成员，3:自定义成员。
+        /// 当值为0、1、2时，不得传入allow_userlist，allow_department，allow_taglist。
+        /// 当值为3时，必须传入allow_userlist，allow_department，allow_taglist至少一项。
+        /// </summary>
+        public int Allow_Type { get; set; }
+
+        /// <summary>
+        /// 邮件组名称
+        /// </summary>
+        public List<string> Allow_UserList { get; set; }     
+
+    }
+
 }
