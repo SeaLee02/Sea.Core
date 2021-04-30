@@ -139,10 +139,10 @@ namespace Sea.Core.Application.AppServices.Sys
         }
 
 
-        public async Task<IQueryable<UserEntity>> GetAll(Expression<Func<UserEntity, bool>> expression)
-        {
-            var list = this._userRepository.GetAll().ToList();
-            return await Task.FromResult(list);
-        }
+        //public async Task<IQueryable<UserEntity>> GetAll(Expression<Func<UserEntity, bool>> expression)
+        //{
+        //    var list = this._userRepository.GetAll().ToList();
+        //    return await Task.FromResult(list);
+        //}
     }
 }

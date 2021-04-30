@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="01AppServices\01Sys\User\Dto\" />
+    <Folder Include="01AppServices\01Sys\Sys_User\Dto\" />
   </ItemGroup>
 
 </Project>

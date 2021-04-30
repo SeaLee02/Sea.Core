@@ -161,6 +161,6 @@ namespace Sea.Core.Application.Abstractions.Repositories
 
 
 
-        Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression);
+        //Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression);
     }
 }
