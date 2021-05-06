@@ -22,8 +22,12 @@ namespace Sea.Core.Application.AppServices.Sys.Login.Dto
         public string Pass { get; set; }
     }
 
+
     public class JwtTokenOutDto
     {
-
+        public bool Success { get; set; }
+        public string Token { get; set; }
+        public double Expires_in { get; set; }
+        public string Token_Type { get; set; }
     }
 }

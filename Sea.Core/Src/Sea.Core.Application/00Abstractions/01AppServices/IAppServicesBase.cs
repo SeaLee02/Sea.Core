@@ -3,6 +3,7 @@ using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -85,6 +86,9 @@ namespace Sea.Core.Application.Abstractions
         /// <returns>r任务</returns>
         Task BatchDelete(DeleteDto deleteDto);
 
+        Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression);
+
+        Task<IQueryable<TEntity>> Queryable();
 
     }
 }

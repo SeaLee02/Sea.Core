@@ -3,6 +3,7 @@ using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,6 +61,17 @@ namespace Sea.Core.Application.Abstractions
         }
 
         public virtual Task<TEntityDto> UpdateByDto(TUpdateInput input)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public virtual Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression) 
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual Task<IQueryable<TEntity>> Queryable()
         {
             throw new NotImplementedException();
         }

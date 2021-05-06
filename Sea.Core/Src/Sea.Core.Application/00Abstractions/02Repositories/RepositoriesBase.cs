@@ -259,17 +259,27 @@ namespace Sea.Core.Application.Abstractions.Repositories
             await db.SaveChangesAsync();
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="expression"></param>
-        ///// <returns></returns>
-        //public virtual async Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression)
-        //{
-        //    var db = this._dbContextProvider.GetDbContext();
-        //    return await Task.FromResult(db.Set<TEntity>().Where(expression));
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public virtual async Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression)
+        {
+            var db = this._dbContextProvider.GetDbContext();
+            return await Task.FromResult(db.Set<TEntity>().Where(expression));
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public virtual async Task<IQueryable<TEntity>> Queryable()
+        {
+            var db = this._dbContextProvider.GetDbContext();
+            return await Task.FromResult(db.Set<TEntity>());
+        }
 
         /// <summary>
         /// 根据主键查询构建lambdaParam参数

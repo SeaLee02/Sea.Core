@@ -13,13 +13,14 @@ using System.Threading.Tasks;
 
 namespace Sea.Core.Application.AppServices.Sys
 {
-    public class User2RoleAppService : AppServicesBase<User2RoleEntity, string, User2RoleDto, User2RoleCreateDto, User2RoleUpdateDto, ViewUser2Role>,
-        IUser2RoleAppService
+    public class Role2Module2PermissionAppService : AppServicesBase<Role2Module2PermissionEntity, string,
+        Role2Module2PermissionDto, Role2Module2PermissionCreateDto, Role2Module2PermissionUpdateDto, ViewRole2Module2Permission>, 
+        IRole2Module2PermissionAppService
     {
-        private readonly IUser2RoleRepository _user2RoleRepository;
-        public User2RoleAppService(IUser2RoleRepository user2RoleRepository)
+        private readonly IRole2Module2PermissionRepository _role2Module2PermissionRepository;
+        public Role2Module2PermissionAppService(IRole2Module2PermissionRepository role2Module2PermissionRepository)
         {
-            this._user2RoleRepository = user2RoleRepository;
+            this._role2Module2PermissionRepository = role2Module2PermissionRepository;
         }
 
         /// <summary>
@@ -27,9 +28,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
-        public override async Task<User2RoleDto> GetDto(string id)
+        public override async Task<Role2Module2PermissionDto> GetDto(string id)
         {
-            var dto = await this._user2RoleRepository.GetDtoAsync(id);
+            var dto = await this._role2Module2PermissionRepository.GetDtoAsync(id);
             return dto;
         }
 
@@ -38,9 +39,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>单个对象的dto</returns>
-        public override async Task<ViewUser2Role> GetViewDto(string id)
+        public override async Task<ViewRole2Module2Permission> GetViewDto(string id)
         {
-            var dto = await this._user2RoleRepository.GetViewDtoAsync(id);
+            var dto = await this._role2Module2PermissionRepository.GetViewDtoAsync(id);
             return dto;
         }
 
@@ -49,9 +50,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="pagedInputDto">分页输入的Dto</param>
         /// <returns>分页信息</returns>
-        public override async Task<MyPagedResult<ViewUser2Role>> GetViewPage(PagedInputDto pagedInputDto)
+        public override async Task<MyPagedResult<ViewRole2Module2Permission>> GetViewPage(PagedInputDto pagedInputDto)
         {
-            var pagedResult = await this._user2RoleRepository.GetViewPageAsync(pagedInputDto);
+            var pagedResult = await this._role2Module2PermissionRepository.GetViewPageAsync(pagedInputDto);
             return pagedResult;
         }
 
@@ -60,9 +61,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="pagedInputDto">分页输入的Dto</param>
         /// <returns>分页信息</returns>
-        public override async Task<MyPagedResult<User2RoleDto>> GetPage(PagedInputDto pagedInputDto)
+        public override async Task<MyPagedResult<Role2Module2PermissionDto>> GetPage(PagedInputDto pagedInputDto)
         {
-            var pagedResult = await this._user2RoleRepository.GetPageAsync(pagedInputDto);
+            var pagedResult = await this._role2Module2PermissionRepository.GetPageAsync(pagedInputDto);
             return pagedResult;
         }
 
@@ -70,9 +71,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// 获取 [用户表] 的所有信息
         /// </summary>
         /// <returns>list集合</returns>
-        public override async Task<List<User2RoleDto>> GetAllListDto()
+        public override async Task<List<Role2Module2PermissionDto>> GetAllListDto()
         {
-            var listResult = await this._user2RoleRepository.GetAllListDtoAsync();
+            var listResult = await this._role2Module2PermissionRepository.GetAllListDtoAsync();
             return listResult;
         }
 
@@ -83,9 +84,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="input">创建输入实体</param>
         /// <returns>输出dto</returns>
-        public override async Task<User2RoleDto> CreateByDto(User2RoleCreateDto input)
+        public override async Task<Role2Module2PermissionDto> CreateByDto(Role2Module2PermissionCreateDto input)
         {
-            var dto = await this._user2RoleRepository.CreateByDtoAsync(input);
+            var dto = await this._role2Module2PermissionRepository.CreateByDtoAsync(input);
             return dto;
         }
 
@@ -94,9 +95,9 @@ namespace Sea.Core.Application.AppServices.Sys
         /// </summary>
         /// <param name="input">更新的实体的对象</param>
         /// <returns>更新后的对象</returns>
-        public override async Task<User2RoleDto> UpdateByDto(User2RoleUpdateDto input)
+        public override async Task<Role2Module2PermissionDto> UpdateByDto(Role2Module2PermissionUpdateDto input)
         {
-            var dto = await this._user2RoleRepository.UpdateByDtoAsync(input);
+            var dto = await this._role2Module2PermissionRepository.UpdateByDtoAsync(input);
             return dto;
         }
 
@@ -107,7 +108,7 @@ namespace Sea.Core.Application.AppServices.Sys
         /// <returns>task 空值</returns>
         public override async Task Delete(string id)
         {
-            await this._user2RoleRepository.DeleteAsync(id);
+            await this._role2Module2PermissionRepository.DeleteAsync(id);
         }
 
         /// <summary>
@@ -124,19 +125,18 @@ namespace Sea.Core.Application.AppServices.Sys
             {
                 newIds.Add(id);
             }
-            await this._user2RoleRepository.BatchDeleteAsync(newIds.ToArray());
+            await this._role2Module2PermissionRepository.BatchDeleteAsync(newIds.ToArray());
         }
 
-        /// <summary>
-        /// linq查询
-        /// </summary>
-        /// <param name="expression"></param>
-        /// <returns></returns>
-        public override async Task<IQueryable<User2RoleEntity>> Queryable(Expression<Func<User2RoleEntity, bool>> expression)
+        public override async Task<IQueryable<Role2Module2PermissionEntity>> Queryable(Expression<Func<Role2Module2PermissionEntity, bool>> expression)
         {
-            var result = await _user2RoleRepository.Queryable(expression);
+            var result = await _role2Module2PermissionRepository.Queryable(expression);
             return await Task.FromResult(result);
         }
 
+        public async Task<List<Role2Module2PermissionEntity>> RoleModuleMaps()
+        {
+            return await _role2Module2PermissionRepository.RoleModuleMaps();
+        }
     }
 }

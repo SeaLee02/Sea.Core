@@ -7,6 +7,7 @@ using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -123,6 +124,12 @@ namespace Sea.Core.Application.AppServices.Sys
                 newIds.Add(id);
             }
             await this._roleRepository.BatchDeleteAsync(newIds.ToArray());
+        }
+
+        public override  async Task<IQueryable<RoleEntity>> Queryable(Expression<Func<RoleEntity, bool>> expression)
+        {
+            var result = await _roleRepository.Queryable(expression);
+            return await Task.FromResult(result);
         }
 
     }

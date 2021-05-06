@@ -119,11 +119,16 @@ namespace Sea.Core.Api.Controllers
             await this._userAppService.BatchDelete(deleteDto);
         }
 
-        //[HttpGet]
-        //public async Task<List<UserEntity>> GetAll123()
-        //{
-        //    var list =await this._userAppService.GetAll1();
-        //    return await Task.FromResult(list);
-        //}
+        [HttpGet]
+        public async Task<string> GetAuthorize()
+        {           
+            return await Task.FromResult("授权请求成功");
+        }
+
+        [HttpGet]
+        public async Task<string> GetNoAuthorize()
+        {
+            return await Task.FromResult("没有授权请求成功");
+        }
     }
 }

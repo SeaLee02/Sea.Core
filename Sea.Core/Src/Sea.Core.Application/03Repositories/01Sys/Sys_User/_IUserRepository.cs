@@ -15,6 +15,6 @@ namespace Sea.Core.Application.Repositories.Sys
     /// </summary>
     public interface IUserRepository : IRepository<UserEntity, string>, IRepositoriesBase<UserEntity, string, UserDto,UserCreateDto,UserUpdateDto, ViewUser>
     {
-        
+        Task<bool> InitData();
     }
 }

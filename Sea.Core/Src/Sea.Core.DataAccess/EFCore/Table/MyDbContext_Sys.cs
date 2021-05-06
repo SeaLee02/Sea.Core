@@ -44,5 +44,12 @@ namespace Sea.Core.Entity
         /// </summary>
         public DbSet<Module2PermissionEntity> Module2PermissionEntitys { get; set; }
 
+
+        /// <summary>
+        /// 接口权限表
+        /// </summary>
+        public DbSet<Role2Module2PermissionEntity>  Role2Module2PermissionEntitys { get; set; }
+        
+
     }
 }

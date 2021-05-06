@@ -3,6 +3,7 @@ using Sea.Core.Application.Repositories.Sys;
 using Sea.Core.Entity.Sys;
 using Sea.Core.Entity.Sys.Dto;
 using Sea.Core.Entity.Sys.View;
+using Sea.Core.Util.Extensions;
 using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
@@ -20,11 +21,20 @@ namespace Sea.Core.Application.AppServices.Sys
         IUserAppService
     {
         private readonly IUserRepository _userRepository;
-        public UserAppService(IUserRepository  userRepository)
+        private readonly IRoleRepository  _roleRepository;
+        private readonly IUser2RoleRepository _user2RoleRepository;
+        private readonly IModule2PermissionAppService  _module2PermissionAppService;
+
+
+        public UserAppService(IUserRepository  userRepository, IRoleRepository roleRepository, IUser2RoleRepository user2RoleRepository, IModule2PermissionAppService module2PermissionAppService)
         {
             this._userRepository = userRepository;
+            this._roleRepository = roleRepository;
+            this._user2RoleRepository = user2RoleRepository;
+            this._module2PermissionAppService = module2PermissionAppService;
         }
 
+        #region 框架方法     
         /// <summary>
         /// 获取单个  [用户表]  的dto
         /// </summary>
@@ -132,17 +142,44 @@ namespace Sea.Core.Application.AppServices.Sys
 
 
 
-        public async Task<List<UserEntity>> GetAll() 
+
+        public override async Task<IQueryable<UserEntity>> Queryable(Expression<Func<UserEntity, bool>> expression)
         {
-            var list= this._userRepository.GetAll().ToList();
-            return await Task.FromResult(list);
+            var result = await _userRepository.Queryable(expression);
+            return await Task.FromResult(result);
+        }
+        #endregion
+
+
+        /// <summary>
+        /// 获取用户角色名称
+        /// </summary>
+        /// <param name="loginName"></param>
+        /// <param name="loginPwd"></param>
+        /// <returns></returns>
+        public async Task<string> GetUserRoleNameStr(string loginName, string loginPwd)
+        {
+            string roleName = "";
+            var user = (await Queryable(a => a.LoginName == loginName && a.LoginPwd == loginPwd)).FirstOrDefault();
+            var roleList = await _roleRepository.Queryable();
+            if (user != null)
+            {
+                var userRoles = (await _user2RoleRepository.Queryable(ur => ur.UserId == user.Id)).ToList();
+                if (userRoles.Count > 0)
+                {
+                    var arr = userRoles.Select(ur => ur.RoleId).ToList();
+                    var roles = roleList.Where(d => arr.Contains(d.Id));
+
+                    roleName = string.Join(',', roles.Select(r => r.Name).ToArray());
+                }
+            }
+            return roleName;
         }
 
+        public async Task<bool> InitData()
+        {
+          return  await this._userRepository.InitData();
 
-        //public async Task<IQueryable<UserEntity>> GetAll(Expression<Func<UserEntity, bool>> expression)
-        //{
-        //    var list = this._userRepository.GetAll().ToList();
-        //    return await Task.FromResult(list);
-        //}
+        }
     }
 }

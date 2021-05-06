@@ -16,9 +16,10 @@ namespace Sea.Core.Application.AppServices.Sys
     /// </summary>
     public interface IUserAppService : IAppServicesBase<UserEntity, string, UserDto,UserCreateDto,UserUpdateDto,ViewUser>
     {
-        //public Task<List<UserEntity>> GetAll();
+
+        Task<string> GetUserRoleNameStr(string loginName, string loginPwd);
 
 
-        //public Task<IQueryable<UserEntity>> GetAll(Expression<Func<UserEntity, bool>> expression);
+        Task<bool> InitData();
     }
 }

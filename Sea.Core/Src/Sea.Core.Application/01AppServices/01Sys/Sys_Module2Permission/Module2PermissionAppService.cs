@@ -7,6 +7,7 @@ using Sea.Core.Util.Framework.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -127,5 +128,10 @@ namespace Sea.Core.Application.AppServices.Sys
             await this._module2PermissionRepository.BatchDeleteAsync(newIds.ToArray());
         }
 
+        public override async Task<IQueryable<Module2PermissionEntity>> Queryable(Expression<Func<Module2PermissionEntity, bool>> expression)
+        {
+            var result = await _module2PermissionRepository.Queryable(expression);
+            return await Task.FromResult(result);
+        }
     }
 }

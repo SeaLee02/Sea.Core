@@ -266,5 +266,16 @@ namespace Sea.Core.Application.Abstractions.Repositories
             BinaryExpression lambdaBody = Expression.Equal(Expression.PropertyOrField(lambdaParam, "Id"), Expression.Constant(id, typeof(TPrimaryKey)));
             return Expression.Lambda<Func<TView, bool>>(lambdaBody, lambdaParam);
         }
+
+        public virtual async Task<IQueryable<TEntity>> Queryable(Expression<Func<TEntity, bool>> expression)
+        { 
+            var entity = _db.Set<TEntity>().Where(expression);
+            return await Task.FromResult(entity);
+        }
+
+        public Task<IQueryable<TEntity>> Queryable()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

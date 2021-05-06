@@ -18,7 +18,7 @@ namespace Sea.Core.Entity.Framework
         /// 是否删除
         /// </summary>
         [Column("IsDelete")]
-        public virtual bool IsDelete { get; set; }
+        public virtual bool IsDelete { get; set; } = false;
 
         /// <summary>
         /// 删除时间

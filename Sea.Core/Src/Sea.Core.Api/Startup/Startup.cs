@@ -49,6 +49,10 @@ namespace Sea.Core.Api
             //Appsettings.app<MutiDBOperate>("DBS")
             #endregion
 
+            Permissions.IsUseIds4 = Appsettings.app(new string[] { "Startup", "IdentityServer4", "Enabled" }).ObjToBool();
+
+
+
             // 确保从认证中心返回的ClaimType不被更改，不使用Map映射
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
@@ -83,10 +87,19 @@ namespace Sea.Core.Api
             //mapper 映射
             services.AddAutoMapperSetup();
 
-            //认证
+            //授权，自定义授权
             services.AddAuthorizationSetup();
-            //Jwt
-            services.AddAuthentication_JWTSetup();
+            if (Permissions.IsUseIds4)
+            {
+                //ids4验证
+                services.AddAuthenticationIds4Setup();
+            }
+            else
+            {
+                //Jwt
+                services.AddAuthentication_JWTSetup();
+            }
+         
 
 
             //关闭自动验证

@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace Sea.Core.Extensions
 {
+   /// <summary>
+   /// 
+   /// </summary>
     public static class AuthorizationSetup
     {
         public static void AddAuthorizationSetup(this IServiceCollection services)
@@ -59,7 +62,7 @@ namespace Sea.Core.Extensions
                 Issuer,//发行人
                 Audience,//听众
                 signingCredentials,//签名凭据
-                expiration: TimeSpan.FromSeconds(60 * 60)//接口的过期时间
+                expiration: TimeSpan.FromSeconds(10)//接口的过期时间   -- 60 * 60  一小时
                 );
             #endregion
             // 3、自定义复杂的策略授权
@@ -82,7 +85,6 @@ namespace Sea.Core.Extensions
 
             //    // 其他 Scope 策略
             //    // ...
-
             //});
 
             //PermissionHandler 里面需要
