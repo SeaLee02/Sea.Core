@@ -98,8 +98,7 @@ namespace Sea.Core.Api
             {
                 //Jwt
                 services.AddAuthentication_JWTSetup();
-            }
-         
+            }        
 
 
             //关闭自动验证
@@ -113,8 +112,6 @@ namespace Sea.Core.Api
             {
                 //添加Dto验证
                 o.Filters.Add<ModelActionFilte>();
-
-                //o.Filters.Add(typeof(ModelActionFilte));
 
                 // 全局异常过滤
                 //o.Filters.Add(typeof(GlobalExceptionsFilter));
@@ -132,18 +129,19 @@ namespace Sea.Core.Api
                 //设置本地时间而非UTC时间
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
             });
-           
-       
+            //Swagger中心
+            services.AddSwaggerSetup();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sea.Core.Api", Version = "v1" });
-            });
+
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sea.Core.Api", Version = "v1" });
+            //});
 
 
 
             //Apollo:配置中心
-           //consul:服务发现
+            //consul:服务发现
         }
 
         // 注意在Program.CreateHostBuilder，添加Autofac服务工厂
@@ -160,8 +158,8 @@ namespace Sea.Core.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sea.Core.Api v1"));
+                //Swagger配置
+                app.UseSwaggerConfigure();
             }
 
             //app.Use(async (context, next) =>

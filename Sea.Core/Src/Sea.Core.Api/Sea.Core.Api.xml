@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sea.Core.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Sea.Core.Api.Controllers.ControllerAbstract">
+            <summary>
+            控制器基础类
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Api.Controllers.Sys.EnterpriseEmailController">
+            <summary>
+            企业邮箱测试
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Api.Controllers.Sys.LoginController">
+            <summary>
+            登录
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.LoginController.InitData">
+            <summary>
+            初始化数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.LoginController.JwtToken(Sea.Core.Application.AppServices.Sys.Login.Dto.JwtTokenInDto)">
+            <summary>
+            获取Token
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.LoginController.RefreshToken(System.String)">
+            <summary>
+            请求刷新Token（以旧换新）
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Api.Controllers.UserController">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.GetDto(System.String)">
+            <summary>
+            获取单个  [课程表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.GetViewDto(System.String)">
+            <summary>
+            获取单个  [应用系统表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [应用系统表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [应用系统表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.GetAllListDto">
+            <summary>
+            获取 [应用系统表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.CreateByDto(Sea.Core.Entity.Sys.Dto.UserCreateDto)">
+            <summary>
+            创建  [应用系统表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.UpdateByDto(Sea.Core.Entity.Sys.Dto.UserUpdateDto)">
+            <summary>
+            更新  [应用系统表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.UserController.GetTest">
+            <summary>
+            测试
+            </summary>
+            <param name="id">参数</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -16,10 +16,10 @@ namespace Sea.Core.Api.Controllers
     /// <summary>
     /// 用户信息
     /// </summary>
-    
+
     public class UserController : SysControllerBase
     {
-        private readonly IUserAppService  _userAppService;
+        private readonly IUserAppService _userAppService;
         public UserController(IUserAppService userAppService)
         {
             this._userAppService = userAppService;
@@ -113,7 +113,7 @@ namespace Sea.Core.Api.Controllers
         /// </summary>
         /// <param name="deleteDto"></param>
         /// <returns></returns>
-       [HttpDelete]
+        [HttpDelete]
         public async Task BatchDelete(DeleteDto deleteDto)
         {
             await this._userAppService.BatchDelete(deleteDto);
@@ -121,12 +121,23 @@ namespace Sea.Core.Api.Controllers
 
         [HttpGet]
         public async Task<string> GetAuthorize()
-        {           
+        {
             return await Task.FromResult("授权请求成功");
         }
 
         [HttpGet]
         public async Task<string> GetNoAuthorize()
+        {
+            return await Task.FromResult("没有授权请求成功");
+        }
+
+        /// <summary>
+        /// 测试
+        /// </summary>
+        /// <param name="id">参数</param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<string> GetTest()
         {
             return await Task.FromResult("没有授权请求成功");
         }

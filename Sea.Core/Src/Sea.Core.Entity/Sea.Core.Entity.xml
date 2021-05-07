@@ -1,0 +1,844 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sea.Core.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:Sea.Core.Entity.Sys.Role2Module2PermissionEntity">
+            <summary>
+            基础-角色接口菜单关系表
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Role2Module2PermissionEntity.ModuleId">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Role2Module2PermissionEntity.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Role2Module2PermissionEntity.PermissionId">
+            <summary>
+            接口
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.UserEntity">
+            <summary>
+            用户信息
+            </summary>
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.LoginName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.LoginPwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.RealName">
+            <summary>
+            真实名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Age">
+            <summary>
+            年纪
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.UserEntity.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.UserConfiguration">
+             <summary>
+            用户信息表配置
+             </summary>
+        </member>
+        <member name="M:Sea.Core.Entity.Sys.UserConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Sea.Core.Entity.Sys.UserEntity})">
+            <summary>
+            builder的配置类
+            </summary>
+            <param name="builder">数据库的build</param>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Module2PermissionEntity">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Module2PermissionEntity.ModuleId">
+            <summary>
+            api ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Module2PermissionEntity.PermissionId">
+            <summary>
+            菜单Id
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.ModuleEntity">
+            <summary>
+            基础-接口表
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.LinkUrl">
+            <summary>
+            菜单链接地址
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Area">
+            <summary>
+            区域名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Controller">
+            <summary>
+            控制器名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Action">
+            <summary>
+            Action名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Code">
+            <summary>
+            菜单编号
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.OrderSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.IsMenu">
+            <summary>
+            是否是右侧菜单
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.ModuleEntity.IsEnabled">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.PermissionEntity">
+            <summary>
+            基础-路由菜单表,菜单表
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Code">
+            <summary>
+            菜单执行的Action
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sea.Core.Entity.Sys.PermissionEntity.IsHide" -->
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.IskeepAlive">
+            <summary>
+            是否保持
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Func">
+            <summary>
+            按钮事件
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.OrderSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Icon">
+            <summary>
+            菜单图标
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.IsEnabled">
+            <summary>
+            激活状态
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Pid">
+            <summary>
+            上一级菜单（0表示上一级无菜单）
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.PermissionEntity.Mid">
+            <summary>
+            接口api
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.RoleEntity">
+            <summary>
+            角色表
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.RoleEntity.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.RoleEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.RoleEntity.OrderSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.RoleEntity.IsEnabled">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.User2RoleEntity">
+            <summary>
+            用户角色表
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.User2RoleEntity.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.User2RoleEntity.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.Role2Module2PermissionCreateDto">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.Role2Module2PermissionUpdateDto">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.RoleDto">
+            <summary>
+            用户信息Dto
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.RoleCreateDto">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.RoleUpdateDto">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.UserDto">
+            <summary>
+            用户信息Dto
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.LoginName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.LoginPwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.RealName">
+            <summary>
+            真实名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Status">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Age">
+            <summary>
+            年纪
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserDto.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.UserCreateDto">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.LoginName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.LoginPwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.RealName">
+            <summary>
+            真实名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Status">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Age">
+            <summary>
+            年纪
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserCreateDto.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.Dto.UserUpdateDto">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.LoginName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.LoginPwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.RealName">
+            <summary>
+            真实名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Status">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Age">
+            <summary>
+            年纪
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.Dto.UserUpdateDto.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewUser">
+            <summary>
+            用户信息
+            </summary>
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.LoginName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.LoginPwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.RealName">
+            <summary>
+            真实名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Age">
+            <summary>
+            年纪
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewUserConfiguration">
+             <summary>
+            用户信息表配置
+             </summary>
+        </member>
+        <member name="M:Sea.Core.Entity.Sys.View.ViewUserConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Sea.Core.Entity.Sys.View.ViewUser})">
+            <summary>
+            builder的配置类
+            </summary>
+            <param name="builder">数据库的build</param>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewModule">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewModule2Permission">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewModule2Permission.ModuleId">
+            <summary>
+            api ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewModule2Permission.PermissionId">
+            <summary>
+            菜单Id
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewPermission">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Code">
+            <summary>
+            菜单执行的Action
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Sea.Core.Entity.Sys.View.ViewPermission.IsHide" -->
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.IskeepAlive">
+            <summary>
+            是否保持
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Func">
+            <summary>
+            按钮事件
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.OrderSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Icon">
+            <summary>
+            菜单图标
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.IsEnabled">
+            <summary>
+            激活状态
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Pid">
+            <summary>
+            上一级菜单（0表示上一级无菜单）
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewPermission.Mid">
+            <summary>
+            接口api
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewRole">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole.OrderSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole.IsEnabled">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewRole2Module2Permission">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole2Module2Permission.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole2Module2Permission.ModuleId">
+            <summary>
+            api ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewRole2Module2Permission.PermissionId">
+            <summary>
+            菜单Id
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Sys.View.ViewUser2Role">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser2Role.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Sys.View.ViewUser2Role.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.ITenant">
+            <summary>
+            多租户
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.BaseEntity`1">
+            <summary>
+            不包含软删除的基类
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntity`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntity`1.CreateId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntity`1.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntity`1.ModifyId">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntity`1.CreateName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntity`1.ModifyName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.EntityBase">
+            <summary>
+            基础
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1">
+            <summary>
+            软删除基类
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1.CreateId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1.ModifyId">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1.CreateName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseEntityWithSoftDelete`1.ModifyName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.EntityBaseWithSoftDelete">
+            <summary>
+            包含软删除功能的实体基类
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.EntityWithSoftDelete`1">
+            <summary>
+            包含指定类型主键的软删除实体
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TDeletedByKey">删除人主键类型</typeparam>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.EntityWithSoftDelete`1.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.EntityWithSoftDelete`1.DeleteTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.EntityWithSoftDelete`1.DeleteName">
+            <summary>
+            删除人
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework.EntityWithSoftDelete">
+            <summary>
+            主键类型GUID的软删除实体
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework._Entity`1">
+            <summary>
+            包含指定类型主键的实体
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework._Entity`1.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Entity.Framework._Entity`1.IsTransient">
+            <summary>
+            是否有值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Entity.Framework._Entity">
+            <summary>
+            主键类型为GUID的实体
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.DeleteTime">
+            <summary>
+            删除时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.DeleteName">
+            <summary>
+            删除人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.CreateId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.ModifyId">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.CreateName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Entity.Framework.BaseDto`1.ModifyName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+    </members>
+</doc>

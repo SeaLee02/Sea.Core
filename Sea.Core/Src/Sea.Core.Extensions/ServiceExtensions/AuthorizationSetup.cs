@@ -62,7 +62,7 @@ namespace Sea.Core.Extensions
                 Issuer,//发行人
                 Audience,//听众
                 signingCredentials,//签名凭据
-                expiration: TimeSpan.FromSeconds(10)//接口的过期时间   -- 60 * 60  一小时
+                expiration: TimeSpan.FromSeconds(60*30)//接口的过期时间   -- 60 * 60  一小时
                 );
             #endregion
             // 3、自定义复杂的策略授权

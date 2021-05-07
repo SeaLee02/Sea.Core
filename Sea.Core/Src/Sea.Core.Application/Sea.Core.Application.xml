@@ -1,0 +1,1440 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sea.Core.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Sea.Core.Application.Abstractions.IAppServicesBase`6">
+            <summary>
+            服务层接口基类
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TPrimaryKey"></typeparam>
+            <typeparam name="TEntityDto"></typeparam>
+            <typeparam name="TView"></typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.GetViewDto(`1)">
+            <summary>
+            获取单个的viewdto对象
+            </summary>
+            <param name="primaryKey">获取对象转成dto</param>
+            <returns>dto对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.GetDto(`1)">
+            <summary>
+            获取单个实体实体数据
+            </summary>
+            <param name="primaryKey">实体的ID</param>
+            <returns>视图数据</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            视图分页
+            </summary>
+            <param name="pagedInputDto">分页输入对象</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            分页
+            </summary>
+            <param name="pagedInputDto">分页输入</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.GetAllListDto">
+            <summary>
+            获取所有的实体数据
+            </summary>
+            <returns>视图数据</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.CreateByDto(`3)">
+            <summary>
+            实体创建异步
+            </summary>
+            <param name="input">输入对象</param>
+            <returns>返回输出对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.UpdateByDto(`4)">
+            <summary>
+            更新
+            </summary>
+            <param name="input">更新输入对象</param>
+            <returns>主键值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.Delete(`1)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">更新输入对象</param>
+            <returns>Task空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.IAppServicesBase`6.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids">更新输入对象</param>
+            <returns>r任务</returns>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.EFCoreRepository`3">
+            <summary>
+            仓储 抽象类 
+            </summary>
+            <typeparam name="TDbContext"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TPrimaryKey"></typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.EFCoreRepository`3.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{`0})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbContextProvider"></param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.EFCoreRepository`3.GetAll">
+            <summary>
+            获取该表的所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.IDbContextProvider`1">
+            <summary>
+            上下文信息
+            </summary>
+            <typeparam name="TDbContext"></typeparam>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.IRepository`2">
+            <summary>
+            最基本的增删改查
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TPrimaryKey"></typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Count">
+            <summary>
+            获取数量
+            </summary>
+            <returns>数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.CountAsync">
+            <summary>
+            获取数量
+            </summary>
+            <returns>数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            过滤条件获取数量
+            </summary>
+            <param name="predicate">表达树</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.CountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            过滤条件获取数量
+            </summary>
+            <param name="predicate">表达树</param>
+            <returns>数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.LongCount">
+            <summary>
+            获取长类型数量
+            </summary>
+            <returns>long类型数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.LongCountAsync">
+            <summary>
+            获取长类型数量
+            </summary>
+            <returns>long类型数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.LongCount(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取长类型数量
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>long类型数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.LongCountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取长类型数量
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>long类型数量</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Get(`1)">
+            <summary>
+            根据id获取实体
+            </summary>
+            <param name="id">id值</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAsync(`1)">
+            <summary>
+            根据id获取实体
+            </summary>
+            <param name="id">id值</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            更据条件获取第一个实体或默认
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.FirstOrDefault(`1)">
+            <summary>
+            根据Id获取第一个实体或者默认
+            </summary>
+            <param name="id">主键值</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            更据条件获取第一个实体或默认
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>task实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.FirstOrDefaultAsync(`1)">
+            <summary>
+            根据Id获取第一个实体或者默认
+            </summary>
+            <param name="id">主键值</param>
+            <returns>task实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取单个实体
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.SingleAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取单个实体
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAll">
+            <summary>
+            获取IQueryable集合
+            </summary>
+            <returns>IQueryable集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAllIncluding(System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            根据条件获取IQueryable集合
+            </summary>
+            <param name="propertySelectors">条件</param>
+            <returns>IQueryable集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAllList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            根据条件获取list集合
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAllList">
+            <summary>
+            获取list集合
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAllListAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            根据条件获取list集合
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.GetAllListAsync">
+            <summary>
+            获取list集合
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Load(`1)">
+            <summary>
+            根据主键加载实体
+            </summary>
+            <param name="id">主键</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Query``1(System.Func{System.Linq.IQueryable{`0},``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryMethod"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Insert(`0)">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertAsync(`0)">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertAndGetId(`0)">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体主键</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertAndGetIdAsync(`0)">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体主键</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertOrUpdate(`0)">
+            <summary>
+            添加或者更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertOrUpdateAsync(`0)">
+            <summary>
+            添加或者更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertOrUpdateAndGetId(`0)">
+            <summary>
+            添加或者更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体主键</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.InsertOrUpdateAndGetIdAsync(`0)">
+            <summary>
+            添加或者更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体主键</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Delete(`0)">
+            <summary>
+            删除实体
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Delete(`1)">
+            <summary>
+             根据id删除实体
+            </summary>
+            <param name="id">主键ID</param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            根据条件删除实体
+            </summary>
+            <param name="predicate">表达树</param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.DeleteAsync(`1)">
+            <summary>
+            根据id删除实体
+            </summary>
+            <param name="id">主键ID</param>
+            <returns>task</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.DeleteAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            根据条件删除
+            </summary>
+            <param name="predicate">条件</param>
+            <returns>task</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.DeleteAsync(`0)">
+            <summary>
+            删除实体
+            </summary>
+            <param name="entity"></param>
+            <returns>task</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Update(`0)">
+            <summary>
+            更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.UpdateAsync(`0)">
+            <summary>
+            更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.Update(`1,System.Action{`0})">
+            <summary>
+            更新实体
+            </summary>
+            <param name="id">需要更新的实体主键</param>
+            <param name="updateAction"></param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepository`2.UpdateAsync(`1,System.Func{`0,System.Threading.Tasks.Task})">
+            <summary>
+            更新实体
+            </summary>
+            <param name="id">需要更新的实体主键</param>
+            <param name="updateAction"></param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.Repository`2">
+            <summary>
+            最基本的增删改查
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TPrimaryKey"></typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.Repository`2.GetAll">
+            <summary>
+            这里不实现，重写方法中实现
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.SimpleDbContextProvider`1">
+            <summary>
+            用作依赖注册。需要注册IDbContextProvider 上下文
+            </summary>
+            <typeparam name="TDbContext"></typeparam>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6">
+            <summary>
+            仓储基类接口定义一些实体仓储公用方法
+            </summary>
+            <typeparam name="TEntity">实体</typeparam>
+            <typeparam name="TPrimaryKey">主键类型</typeparam>
+            <typeparam name="TEntityDto">展示实体</typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetViewDtoAsync(`1)">
+            <summary>
+            获取单个的viewdto对象
+            </summary>
+            <param name="primaryKey">获取对象转成dto</param>
+            <returns>dto对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetViewPageAsync(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>   
+             视图分页
+            </summary>
+            <code>
+            <![CDATA[
+             PagedInputDto pagedInputDto = new PagedInputDto()
+                            {
+                                PageIndex = 1,
+                                PageSize = 10,
+                                Order = "StuName desc"
+                            };
+                            pagedInputDto.Filter = new PageFilterDto()
+                            {
+                                Type = "and",
+                                Conditions = new System.Collections.Generic.List<Condition>()
+                                {
+                                    new Condition() { Attribute = "StuName", Datatype = "nvarchar", Operatoer = "like", Value = "0" },
+                                    new Condition() { Attribute = "Birthday", Datatype = "int", Operatoer = "null" }
+                                },
+                                Filters = new System.Collections.Generic.List<PageFilterDto>()
+                                {
+                                    new PageFilterDto()
+                                    {
+                                        Type = "or",
+                                        Conditions = new System.Collections.Generic.List<Condition>()
+                                        {
+                                            new Condition() { Attribute = "ApproveState", Datatype = "nvarchar",
+                                                Operatoer = "eq", Value = "审核中" }
+                                        }
+                                    }
+                                }
+                            };
+                            var pagedResult = service.GetPage(pagedInputDto);
+            ]]>
+            </code>
+            <param name="pagedInputDto">分页输入对象</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetPageAsync(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>   
+             分页
+            </summary>
+            <code>
+            <![CDATA[
+             PagedInputDto pagedInputDto = new PagedInputDto()
+                            {
+                                PageIndex = 1,
+                                PageSize = 10,
+                                Order = "StuName desc"
+                            };
+                            pagedInputDto.Filter = new PageFilterDto()
+                            {
+                                Type = "and",
+                                Conditions = new System.Collections.Generic.List<Condition>()
+                                {
+                                    new Condition() { Attribute = "StuName", Datatype = "nvarchar", Operatoer = "like", Value = "0" },
+                                    new Condition() { Attribute = "Birthday", Datatype = "int", Operatoer = "null" }
+                                },
+                                Filters = new System.Collections.Generic.List<PageFilterDto>()
+                                {
+                                    new PageFilterDto()
+                                    {
+                                        Type = "or",
+                                        Conditions = new System.Collections.Generic.List<Condition>()
+                                        {
+                                            new Condition() { Attribute = "ApproveState", Datatype = "nvarchar",
+                                                Operatoer = "eq", Value = "审核中" }
+                                        }
+                                    }
+                                }
+                            };
+                            var pagedResult = service.GetPage(pagedInputDto);
+            ]]>
+            </code>
+            <param name="pagedInputDto">分页输入</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetAllListDtoAsync">
+            <summary>
+            获取所有的实体数据
+            </summary>
+            <returns>视图数据</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetAllListDtoAsync``1">
+            <summary>
+            返回对应的dto类型
+            </summary>
+            <typeparam name="TDto">映射了该实体的dto返回</typeparam>
+            <returns>返回对应的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetDtoAsync(`1)">
+            <summary>
+            获取单个实体实体数据
+            </summary>
+            <param name="primaryKey">实体的ID</param>
+            <returns>视图数据</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.GetDtoAsync``1(`1)">
+            <summary>
+            返回对应的dtos对象
+            </summary>
+            <typeparam name="TDto">dto类类型</typeparam>
+            <param name="primaryKey">dtol类型</param>
+            <returns>对应的dto类型数据</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.CreateByDtoAsync(`3)">
+            <summary>
+            实体创建异步
+            </summary>
+            <param name="input">输入对象</param>
+            <returns>返回输出对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.UpdateByDtoAsync(`4)">
+            <summary>
+            更新
+            </summary>
+            <param name="input">更新输入对象</param>
+            <returns>主键值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.IRepositoriesBase`6.BatchDeleteAsync(`1[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids">更新输入对象</param>
+            <returns>r任务</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.EFCoreRepositoryBase`3.#ctor(`0)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.EFCoreRepositoryBase`3.GetAll">
+            <summary>
+            获取该表的所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6">
+            <summary>
+             response基类
+            </summary>
+            <typeparam name="TEntity">实体对象</typeparam>
+            <typeparam name="TPrimaryKey">主键的类型</typeparam>
+            <typeparam name="TEntityDto">实体展示的类型</typeparam>
+            <typeparam name="TViewDto">viewDto的展示</typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.#ctor(Sea.Core.Entity.MyDbContext,AutoMapper.IMapper)">
+            <summary>
+            构造函数，传递上下文
+            </summary>
+            <param name="dbContext"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetViewDtoAsync(`1)">
+            <summary>
+            获取单个的dto对象
+            </summary>
+            <param name="primaryKey">获取对象转成dto</param>
+            <returns>dto对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetViewPageAsync(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>   
+             视图分页
+            </summary>
+            <code>
+            <![CDATA[
+             PagedInputDto pagedInputDto = new PagedInputDto()
+                            {
+                                PageIndex = 1,
+                                PageSize = 10,
+                                Order = "StuName desc"
+                            };
+                            pagedInputDto.Filter = new PageFilterDto()
+                            {
+                                Type = "and",
+                                Conditions = new System.Collections.Generic.List<Condition>()
+                                {
+                                    new Condition() { Attribute = "StuName", Datatype = "nvarchar", Operatoer = "like", Value = "0" },
+                                    new Condition() { Attribute = "Birthday", Datatype = "int", Operatoer = "null" }
+                                },
+                                Filters = new System.Collections.Generic.List<PageFilterDto>()
+                                {
+                                    new PageFilterDto()
+                                    {
+                                        Type = "or",
+                                        Conditions = new System.Collections.Generic.List<Condition>()
+                                        {
+                                            new Condition() { Attribute = "ApproveState", Datatype = "nvarchar",
+                                                Operatoer = "eq", Value = "审核中" }
+                                        }
+                                    }
+                                }
+                            };
+                            var pagedResult = service.GetPage(pagedInputDto);
+            ]]>
+            </code>
+            <param name="pagedInputDto">分页输入对象</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetPageAsync(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>   
+             分页
+            </summary>
+            <code>
+            <![CDATA[
+             PagedInputDto pagedInputDto = new PagedInputDto()
+                            {
+                                PageIndex = 1,
+                                PageSize = 10,
+                                Order = "StuName desc"
+                            };
+                            pagedInputDto.Filter = new PageFilterDto()
+                            {
+                                Type = "and",
+                                Conditions = new System.Collections.Generic.List<Condition>()
+                                {
+                                    new Condition() { Attribute = "StuName", Datatype = "nvarchar", Operatoer = "like", Value = "0" },
+                                    new Condition() { Attribute = "Birthday", Datatype = "int", Operatoer = "null" }
+                                },
+                                Filters = new System.Collections.Generic.List<PageFilterDto>()
+                                {
+                                    new PageFilterDto()
+                                    {
+                                        Type = "or",
+                                        Conditions = new System.Collections.Generic.List<Condition>()
+                                        {
+                                            new Condition() { Attribute = "ApproveState", Datatype = "nvarchar",
+                                                Operatoer = "eq", Value = "审核中" }
+                                        }
+                                    }
+                                }
+                            };
+                            var pagedResult = service.GetPage(pagedInputDto);
+            ]]>
+            </code>
+            <param name="pagedInputDto">分页输入对象</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetAllListDtoAsync">
+            <summary>
+            获取所有数据List
+            </summary>
+            <returns>转换后的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetAllListDtoAsync``1">
+            <summary>
+            返回对应的dto类型集合
+            </summary>
+            <typeparam name="TDto">映射了该实体的dto返回</typeparam>
+            <returns>返回对应的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetDtoAsync(`1)">
+            <summary>
+            获取单个的dto对象
+            </summary>
+            <param name="primaryKey">获取对象转成dto</param>
+            <returns>dto对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.GetDtoAsync``1(`1)">
+            <summary>
+            返回对应的dto对象
+            </summary>
+            <typeparam name="TDto">dto类型</typeparam>
+            <param name="primaryKey">主键</param>
+            <returns>对应的dto类型的值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.CreateByDtoAsync(`3)">
+            <summary>
+            根据输入的dto创建对象
+            </summary>
+            <param name="input">创建输入的dto</param>
+            <returns>展示的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.UpdateByDtoAsync(`4)">
+            <summary>
+            更新的dto
+            </summary>
+            <param name="input">输入对象</param>
+            <returns>展示的Dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.BatchDeleteAsync(`1[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids">id的集合</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.MyRepositoriesBase`6.CreateViewEqualityExpressionForId(`1)">
+            <summary>
+            根据主键查询构建lambdaParam参数
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6">
+            <summary>
+             response基类
+            </summary>
+            <typeparam name="TEntity">实体对象</typeparam>
+            <typeparam name="TPrimaryKey">主键的类型</typeparam>
+            <typeparam name="TEntityDto">实体展示的类型</typeparam>
+            <typeparam name="TViewDto">viewDto的展示</typeparam>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数，传递上下文
+            </summary>
+            <param name="dbContext"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetViewDtoAsync(`1)">
+            <summary>
+            获取单个的dto对象
+            </summary>
+            <param name="primaryKey">获取对象转成dto</param>
+            <returns>dto对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetViewPageAsync(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>   
+             视图分页
+            </summary>
+            <code>
+            <![CDATA[
+             PagedInputDto pagedInputDto = new PagedInputDto()
+                            {
+                                PageIndex = 1,
+                                PageSize = 10,
+                                Order = "StuName desc"
+                            };
+                            pagedInputDto.Filter = new PageFilterDto()
+                            {
+                                Type = "and",
+                                Conditions = new System.Collections.Generic.List<Condition>()
+                                {
+                                    new Condition() { Attribute = "StuName", Datatype = "nvarchar", Operatoer = "like", Value = "0" },
+                                    new Condition() { Attribute = "Birthday", Datatype = "int", Operatoer = "null" }
+                                },
+                                Filters = new System.Collections.Generic.List<PageFilterDto>()
+                                {
+                                    new PageFilterDto()
+                                    {
+                                        Type = "or",
+                                        Conditions = new System.Collections.Generic.List<Condition>()
+                                        {
+                                            new Condition() { Attribute = "ApproveState", Datatype = "nvarchar",
+                                                Operatoer = "eq", Value = "审核中" }
+                                        }
+                                    }
+                                }
+                            };
+                            var pagedResult = service.GetPage(pagedInputDto);
+            ]]>
+            </code>
+            <param name="pagedInputDto">分页输入对象</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetPageAsync(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>   
+             分页
+            </summary>
+            <code>
+            <![CDATA[
+             PagedInputDto pagedInputDto = new PagedInputDto()
+                            {
+                                PageIndex = 1,
+                                PageSize = 10,
+                                Order = "StuName desc"
+                            };
+                            pagedInputDto.Filter = new PageFilterDto()
+                            {
+                                Type = "and",
+                                Conditions = new System.Collections.Generic.List<Condition>()
+                                {
+                                    new Condition() { Attribute = "StuName", Datatype = "nvarchar", Operatoer = "like", Value = "0" },
+                                    new Condition() { Attribute = "Birthday", Datatype = "int", Operatoer = "null" }
+                                },
+                                Filters = new System.Collections.Generic.List<PageFilterDto>()
+                                {
+                                    new PageFilterDto()
+                                    {
+                                        Type = "or",
+                                        Conditions = new System.Collections.Generic.List<Condition>()
+                                        {
+                                            new Condition() { Attribute = "ApproveState", Datatype = "nvarchar",
+                                                Operatoer = "eq", Value = "审核中" }
+                                        }
+                                    }
+                                }
+                            };
+                            var pagedResult = service.GetPage(pagedInputDto);
+            ]]>
+            </code>
+            <param name="pagedInputDto">分页输入对象</param>
+            <returns>分页对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetAllListDtoAsync">
+            <summary>
+            获取所有数据List
+            </summary>
+            <returns>转换后的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetAllListDtoAsync``1">
+            <summary>
+            返回对应的dto类型集合
+            </summary>
+            <typeparam name="TDto">映射了该实体的dto返回</typeparam>
+            <returns>返回对应的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetDtoAsync(`1)">
+            <summary>
+            获取单个的dto对象
+            </summary>
+            <param name="primaryKey">获取对象转成dto</param>
+            <returns>dto对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.GetDtoAsync``1(`1)">
+            <summary>
+            返回对应的dto对象
+            </summary>
+            <typeparam name="TDto">dto类型</typeparam>
+            <param name="primaryKey">主键</param>
+            <returns>对应的dto类型的值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.CreateByDtoAsync(`3)">
+            <summary>
+            根据输入的dto创建对象
+            </summary>
+            <param name="input">创建输入的dto</param>
+            <returns>展示的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.UpdateByDtoAsync(`4)">
+            <summary>
+            更新的dto
+            </summary>
+            <param name="input">输入对象</param>
+            <returns>展示的Dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.BatchDeleteAsync(`1[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids">id的集合</param>
+            <returns>任务</returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.Queryable(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.Queryable">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.Abstractions.Repositories.RepositoriesBase`6.CreateViewEqualityExpressionForId(`1)">
+            <summary>
+            根据主键查询构建lambdaParam参数
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="P:Sea.Core.Application.AppServices.Sys.Login.Dto.JwtTokenInDto.Name">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Sea.Core.Application.AppServices.Sys.Login.Dto.JwtTokenInDto.Pass">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.Module2PermissionCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.Module2PermissionUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Module2PermissionAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.ModuleCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.ModuleUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.ModuleAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.PermissionCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.PermissionUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.PermissionAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.Role2Module2PermissionCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.Role2Module2PermissionUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.Role2Module2PermissionAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.RoleCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.RoleUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.RoleAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.User2RoleCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.User2RoleUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.User2RoleAppService.Queryable(System.Linq.Expressions.Expression{System.Func{Sea.Core.Entity.Sys.User2RoleEntity,System.Boolean}})">
+            <summary>
+            linq查询
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.AppServices.Sys.UserAppService">
+            <summary>
+            用户服务
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.GetDto(System.String)">
+            <summary>
+            获取单个  [用户表]  的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.GetViewDto(System.String)">
+            <summary>
+            获取单个  [用户表] 视图的dto
+            </summary>
+            <param name="id">主键</param>
+            <returns>单个对象的dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.GetViewPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 视图分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.GetPage(Sea.Core.Util.Framework.Dto.PagedInputDto)">
+            <summary>
+            获取  [用户表] 分页的信息
+            </summary>
+            <param name="pagedInputDto">分页输入的Dto</param>
+            <returns>分页信息</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.GetAllListDto">
+            <summary>
+            获取 [用户表] 的所有信息
+            </summary>
+            <returns>list集合</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.CreateByDto(Sea.Core.Entity.Sys.Dto.UserCreateDto)">
+            <summary>
+            创建  [用户表]
+            </summary>
+            <param name="input">创建输入实体</param>
+            <returns>输出dto</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.UpdateByDto(Sea.Core.Entity.Sys.Dto.UserUpdateDto)">
+            <summary>
+            更新  [用户表]
+            </summary>
+            <param name="input">更新的实体的对象</param>
+            <returns>更新后的对象</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">实体的id</param>
+            <returns>task 空值</returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.BatchDelete(Sea.Core.Util.Framework.Dto.DeleteDto)">
+            <summary>
+            批量删除
+            </summary>
+            <param name="deleteDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Application.AppServices.Sys.UserAppService.GetUserRoleNameStr(System.String,System.String)">
+            <summary>
+            获取用户角色名称
+            </summary>
+            <param name="loginName"></param>
+            <param name="loginPwd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.AppServices.Sys.IUserAppService">
+            <summary>
+            用户信息服务
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.Module2PermissionRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.ModuleRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.PermissionRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Application.Repositories.Sys.Role2Module2PermissionRepository">
+            <summary>
+            角色仓储
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.Role2Module2PermissionRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.Role2Module2PermissionRepository.RoleModuleMaps">
+            <summary>
+            获取角色,获取角色模块对应关系，可以使用视图来简单解决  联合查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Application.Repositories.Sys.RoleRepository">
+            <summary>
+            角色仓储
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.RoleRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Application.Repositories.Sys.IRoleRepository">
+            <summary>
+            角色仓储
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.User2RoleRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Application.Repositories.Sys.IUser2RoleRepository">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Application.Repositories.Sys.UserRepository">
+            <summary>
+             用户仓储
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Application.Repositories.Sys.UserRepository.#ctor(Sea.Core.Application.Abstractions.Repositories.IDbContextProvider{Sea.Core.Entity.MyDbContext},AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Sea.Core.Application.Repositories.Sys.IUserRepository">
+            <summary>
+            用户仓储
+            </summary>
+        </member>
+    </members>
+</doc>
