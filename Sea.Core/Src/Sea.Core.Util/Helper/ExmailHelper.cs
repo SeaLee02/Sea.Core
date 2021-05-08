@@ -151,6 +151,7 @@ namespace Sea.Core.Util
         public async Task<ExmailModel> CreateUser(CreateUserModel dto)
         {
             string url = $"https://api.exmail.qq.com/cgi-bin/user/create?access_token={this.Email_token}";
+            dto.UserId += "企业域名配置";
             ExmailModel model = await HttpHelper.PostHttpAsync<ExmailModel, CreateUserModel>(url, dto);
             if (model.Errcode != 0)
             {

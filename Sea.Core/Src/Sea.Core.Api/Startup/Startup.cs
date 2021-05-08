@@ -132,14 +132,6 @@ namespace Sea.Core.Api
             //Swagger中心
             services.AddSwaggerSetup();
 
-
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sea.Core.Api", Version = "v1" });
-            //});
-
-
-
             //Apollo:配置中心
             //consul:服务发现
         }
@@ -158,27 +150,10 @@ namespace Sea.Core.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //Swagger配置
-                app.UseSwaggerConfigure();
+                ////Swagger配置
+                app.UseSwaggerConfigure();               
             }
-
-            //app.Use(async (context, next) =>
-            //{
-            //    await context.Response.WriteAsync("Hello2");
-            //});
-
-
-            //app.Use(async (context, next) =>
-            //{
-            //    //await context.Response.WriteAsync("Hello");
-            //    await next();
-            //    if (context.Response.HasStarted)
-            //    {
-            //        //一旦已经开始输出，则不能再修改响应头的内容
-            //    }
-            //    await context.Response.WriteAsync("Hello2");
-            //});
-
+        
             app.UseRouting();
 
             // 先开启认证
