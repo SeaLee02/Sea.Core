@@ -10,11 +10,123 @@ namespace Sea.Core.Util
     /// 简单的缓存接口，只有查询和添加，以后会进行扩展
     /// </summary>
     public interface ICaching
-    {
-        object Get(string cacheKey);
+    { 
+        /// <summary>
+       /// 获取
+       /// </summary>
+       /// <param name="key">键</param>
+       /// <returns></returns>
+        string Get(string key);
 
-        void Set(string cacheKey, object cacheValue, int secondsSpan);
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <returns></returns>
+        T Get<T>(string key);
 
-        T Get<T>(string cacheKey);
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <returns></returns>
+        Task<string> GetAsync(string key);
+
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <returns></returns>
+        Task<T> GetAsync<T>(string key);
+
+        /// <summary>
+        /// 尝试获取
+        /// </summary>
+        /// <param name="key">键</param>
+        /// <param name="value">返回值</param>
+        /// <returns></returns>
+        bool TryGetValue(string key, out string value);
+
+        /// <summary>
+        /// 尝试获取
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="value">返回值</param>
+        /// <returns></returns>
+        bool TryGetValue<T>(string key, out T value);
+
+        /// <summary>
+        /// 设置
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        bool Set<T>(string key, T value);
+
+        /// <summary>
+        /// 设置
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        /// <param name="expires">有效期(分钟)</param>
+        bool Set<T>(string key, T value, int expires);
+
+        /// <summary>
+        /// 设置
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        Task<bool> SetAsync<T>(string key, T value);
+
+        /// <summary>
+        /// 设置
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key">键</param>
+        /// <param name="value">值</param>
+        /// <param name="expires">有效期(分钟)</param>
+        /// <returns></returns>
+        Task<bool> SetAsync<T>(string key, T value, int expires);
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="key"></param>
+        bool Remove(string key);
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        Task<bool> RemoveAsync(string key);
+
+        /// <summary>
+        /// 指定键是否存在
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        bool Exists(string key);
+
+        /// <summary>
+        /// 指定键是否存在
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        Task<bool> ExistsAsync(string key);
+
+        /// <summary>
+        /// 删除指定前缀的缓存
+        /// </summary>
+        /// <param name="prefix"></param>
+        /// <returns></returns>
+        Task RemoveByPrefixAsync(string prefix);
     }
 }
+

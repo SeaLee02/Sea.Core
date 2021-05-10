@@ -27,6 +27,7 @@ namespace Sea.Core.Api.Controllers.Sys
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public async Task Query([FromQuery] QueryModel model)
         {
         }
