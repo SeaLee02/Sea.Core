@@ -14,6 +14,56 @@
             企业邮箱测试
             </summary>
         </member>
+        <member name="T:Sea.Core.Api.Controllers.Sys.ExampleController">
+            <summary>
+            列子接口
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.Query(Sea.Core.Api.Controllers.Sys.QueryModel)">
+            <summary>
+            查询
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.Add(Sea.Core.Api.Controllers.Sys.AddModel)">
+            <summary>
+            添加
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.Edit(System.Guid)">
+            <summary>
+            编辑
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.Update(Sea.Core.Api.Controllers.Sys.UpdateModel)">
+            <summary>
+            更新
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.Delete(System.Guid)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sea.Core.Api.Controllers.Sys.QueryModel">
+            <summary>
+            查询Model
+            </summary>
+        </member>
         <member name="T:Sea.Core.Api.Controllers.Sys.LoginController">
             <summary>
             登录

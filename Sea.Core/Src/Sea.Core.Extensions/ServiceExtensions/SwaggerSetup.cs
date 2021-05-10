@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Sea.Core.Extensions.Filter.Swagger;
 using Sea.Core.Util;
 using Sea.Core.Util.Web;
 using Swashbuckle.AspNetCore.Filters;
@@ -45,6 +46,11 @@ namespace Sea.Core.Extensions
 
                     return versions.Any(v => $"{v.ToString()}" == docName);
                 });
+
+
+
+                //转小写
+                options.DocumentFilter<LowercaseDocumentFilter>();
 
                 // 开启加权小锁
                 options.OperationFilter<AddResponseHeadersFilter>();
