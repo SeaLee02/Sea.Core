@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Sea.Core.Extensions.ServiceExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,6 @@ namespace Sea.Core.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>().UseUrls("http://*:8081");
-                });
+                }).UseLogging();
     }
 }

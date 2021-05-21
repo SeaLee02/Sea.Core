@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,13 @@ namespace Sea.Core.Api.Controllers.Sys
     /// </summary>
     public class ExampleController : SysControllerBase
     {
+        private readonly ILogger<ExampleController> _logger;
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ExampleController()
+        public ExampleController(ILogger<ExampleController> logger)
         {
-
+            this._logger = logger;
         }
 
         /// <summary>
@@ -31,6 +33,12 @@ namespace Sea.Core.Api.Controllers.Sys
         [AllowAnonymous]
         public async Task Query([FromQuery] QueryModel model)
         {
+
+            _logger.LogInformation("开始你的表演:LogInformation");
+            _logger.LogWarning("开始你的表演:LogWarning");
+            _logger.LogError("开始你的表演:LogError");
+            _logger.LogDebug("开始你的表演:LogDebug");
+
         }
 
         /// <summary>

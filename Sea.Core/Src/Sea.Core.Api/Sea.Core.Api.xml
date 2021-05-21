@@ -19,7 +19,7 @@
             列子接口
             </summary>
         </member>
-        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.#ctor">
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.#ctor(Microsoft.Extensions.Logging.ILogger{Sea.Core.Api.Controllers.Sys.ExampleController})">
             <summary>
             构造函数
             </summary>
@@ -156,6 +156,12 @@
             </summary>
             <param name="id">参数</param>
             <returns></returns>
+        </member>
+        <member name="M:Sea.Core.Api.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            注意在Program.CreateHostBuilder，添加Autofac服务工厂
+            </summary>
+            <param name="builder"></param>
         </member>
     </members>
 </doc>

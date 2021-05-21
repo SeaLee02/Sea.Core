@@ -35,12 +35,12 @@ namespace Sea.Core.Api
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+       
             #region 配置帮助类
             //注册为单例模式
             services.AddSingleton(new Appsettings(Configuration));
@@ -136,10 +136,12 @@ namespace Sea.Core.Api
             //consul:服务发现
         }
 
-        // 注意在Program.CreateHostBuilder，添加Autofac服务工厂
+        /// <summary>
+        /// 注意在Program.CreateHostBuilder，添加Autofac服务工厂
+        /// </summary>
+        /// <param name="builder"></param>
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            Console.WriteLine("b");
             //依赖注入
             builder.RegisterModule(new AutofacModuleRegister());
         }
