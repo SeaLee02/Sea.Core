@@ -20,12 +20,10 @@ namespace Sea.Core.Extensions.Filter
 
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            Console.WriteLine("模型验证完成");
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            Console.WriteLine("正在模型验证");
             if (!context.ModelState.IsValid)
             {
 

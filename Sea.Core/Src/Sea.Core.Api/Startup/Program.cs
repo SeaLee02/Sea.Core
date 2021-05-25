@@ -24,6 +24,11 @@ namespace Sea.Core.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>().UseUrls("http://*:8081");
-                }).UseLogging();
+                }).UseLogging()
+                .ConfigureHostConfiguration(configHost =>
+                {
+                    configHost.AddEnvironmentVariables();
+                    configHost.AddCommandLine(args);
+                });
     }
 }

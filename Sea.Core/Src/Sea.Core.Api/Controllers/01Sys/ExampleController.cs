@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
+using Sea.Core.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,15 @@ namespace Sea.Core.Api.Controllers.Sys
     /// </summary>
     public class ExampleController : SysControllerBase
     {
-        private readonly ILogger<ExampleController> _logger;
+        private readonly ILogger _logger;
+         private readonly ICaching _cache;
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ExampleController(ILogger<ExampleController> logger)
+        public ExampleController(ILogger<ExampleController> logger, ICaching cache)
         {
             this._logger = logger;
+            this._cache = cache;
         }
 
         /// <summary>
@@ -33,6 +36,9 @@ namespace Sea.Core.Api.Controllers.Sys
         [AllowAnonymous]
         public async Task Query([FromQuery] QueryModel model)
         {
+            this._cache.Set("a", "dwd");
+          string a=   this._cache.Get("a");
+
 
             _logger.LogInformation("开始你的表演:LogInformation");
             _logger.LogWarning("开始你的表演:LogWarning");

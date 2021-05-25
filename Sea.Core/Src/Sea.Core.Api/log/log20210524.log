@@ -1,0 +1,72 @@
+2021-05-24 13:53:01.982 +08:00 [DBG] Hosting starting
+ <s:Microsoft.Extensions.Hosting.Internal.Host>2021-05-24 13:53:02.089 +08:00 [INF] User profile is available. Using 'C:\Users\WA04572\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+ <s:Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager>2021-05-24 13:53:02.123 +08:00 [DBG] Reading data from file 'C:\Users\WA04572\AppData\Local\ASP.NET\DataProtection-Keys\key-6ad55687-31f4-4ffc-96d8-b9eb1cf579a6.xml'.
+ <s:Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository>2021-05-24 13:53:02.143 +08:00 [DBG] Found key {6ad55687-31f4-4ffc-96d8-b9eb1cf579a6}.
+ <s:Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager>2021-05-24 13:53:02.158 +08:00 [DBG] Considering key {6ad55687-31f4-4ffc-96d8-b9eb1cf579a6} with expiration date 2021-07-19 07:42:12Z as default key.
+ <s:Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver>2021-05-24 13:53:02.170 +08:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.14.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ <s:Microsoft.AspNetCore.DataProtection.TypeForwardingActivator>2021-05-24 13:53:02.174 +08:00 [DBG] Decrypting secret element using Windows DPAPI.
+ <s:Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor>2021-05-24 13:53:02.176 +08:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.14.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+ <s:Microsoft.AspNetCore.DataProtection.TypeForwardingActivator>2021-05-24 13:53:02.180 +08:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+ <s:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory>2021-05-24 13:53:02.184 +08:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+ <s:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory>2021-05-24 13:53:02.188 +08:00 [DBG] Using key {6ad55687-31f4-4ffc-96d8-b9eb1cf579a6} as the default key.
+ <s:Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider>2021-05-24 13:53:02.190 +08:00 [DBG] Key ring with default key {6ad55687-31f4-4ffc-96d8-b9eb1cf579a6} was loaded during application startup.
+ <s:Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService>2021-05-24 13:53:02.440 +08:00 [INF] Now listening on: http://[::]:8081
+ <s:Microsoft.Hosting.Lifetime>2021-05-24 13:53:02.446 +08:00 [DBG] Loaded hosting startup assembly Sea.Core.Api
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>2021-05-24 13:53:02.453 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+ <s:Microsoft.Hosting.Lifetime>2021-05-24 13:53:02.454 +08:00 [INF] Hosting environment: Development
+ <s:Microsoft.Hosting.Lifetime>2021-05-24 13:53:02.454 +08:00 [INF] Content root path: F:\Code\MyCode\Sea.Core\Sea.Core\src\Sea.Core.Api
+ <s:Microsoft.Hosting.Lifetime>2021-05-24 13:53:02.455 +08:00 [DBG] Hosting started
+ <s:Microsoft.Extensions.Hosting.Internal.Host>2021-05-24 13:53:02.486 +08:00 [DBG] Connection id "0HM8UF0ONR4KK" received FIN.
+ <s:Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets>2021-05-24 13:53:02.502 +08:00 [DBG] Connection id "0HM8UF0ONR4KK" accepted.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.507 +08:00 [DBG] Connection id "0HM8UF0ONR4KK" started.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.516 +08:00 [DBG] Connection id "0HM8UF0ONR4KK" sending FIN because: "The client closed the connection."
+ <s:Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets>2021-05-24 13:53:02.520 +08:00 [DBG] Connection id "0HM8UF0ONR4KK" disconnecting.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.526 +08:00 [DBG] Connection id "0HM8UF0ONR4KK" stopped.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.812 +08:00 [DBG] Connection id "0HM8UF0ONR4KL" accepted.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.862 +08:00 [DBG] Connection id "0HM8UF0ONR4KL" started.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.894 +08:00 [DBG] Connection id "0HM8UF0ONR4KM" accepted.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.899 +08:00 [DBG] Connection id "0HM8UF0ONR4KM" started.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:02.931 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8081/swagger/index.html - -
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>2021-05-24 13:53:02.944 +08:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+ <s:Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware>2021-05-24 13:53:03.096 +08:00 [DBG] Connection id "0HM8UF0ONR4KM" completed keep alive response.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:03.105 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:8081/swagger/index.html - - - 200 - text/html;charset=utf-8 175.3227ms
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>2021-05-24 13:53:03.430 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8081/swagger/Sys/swagger.json - -
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>2021-05-24 13:53:03.731 +08:00 [DBG] Connection id "0HM8UF0ONR4KM" completed keep alive response.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:03.736 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:8081/swagger/Sys/swagger.json - - - 200 - application/json;charset=utf-8 305.2903ms
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>2021-05-24 13:53:21.287 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:8081/api/sys/example/query - -
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>2021-05-24 13:53:21.289 +08:00 [DBG] The request path  does not match the path filter
+ <s:Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware>2021-05-24 13:53:21.339 +08:00 [DBG] 1 candidate(s) found for the request path '/api/sys/example/query'
+ <s:Microsoft.AspNetCore.Routing.Matching.DfaMatcher>2021-05-24 13:53:21.343 +08:00 [DBG] Endpoint 'Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api)' with route pattern 'api/Sys/Example/Query' is valid for the request path '/api/sys/example/query'
+ <s:Microsoft.AspNetCore.Routing.Matching.DfaMatcher>2021-05-24 13:53:21.344 +08:00 [DBG] Request matched endpoint 'Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api)'
+ <s:Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware>2021-05-24 13:53:21.390 +08:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+ <s:Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler>2021-05-24 13:53:21.512 +08:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+ <s:Microsoft.EntityFrameworkCore.Infrastructure>2021-05-24 13:53:21.556 +08:00 [INF] Executing endpoint 'Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api)'
+ <s:Microsoft.AspNetCore.Routing.EndpointMiddleware>2021-05-24 13:53:21.566 +08:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory>2021-05-24 13:53:21.605 +08:00 [INF] Route matched with {area = "Sys", action = "Query", controller = "Example"}. Executing controller action with signature System.Threading.Tasks.Task Query(Sea.Core.Api.Controllers.Sys.QueryModel) on controller Sea.Core.Api.Controllers.Sys.ExampleController (Sea.Core.Api).
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.608 +08:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.609 +08:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.612 +08:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Sea.Core.Extensions.Filter.ModelActionFilte"]
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.613 +08:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.613 +08:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.614 +08:00 [DBG] Executing controller factory for controller Sea.Core.Api.Controllers.Sys.ExampleController (Sea.Core.Api)
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.616 +08:00 [DBG] Executed controller factory for controller Sea.Core.Api.Controllers.Sys.ExampleController (Sea.Core.Api)
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.623 +08:00 [DBG] Attempting to bind parameter 'model' of type 'Sea.Core.Api.Controllers.Sys.QueryModel' ...
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder>2021-05-24 13:53:21.624 +08:00 [DBG] Attempting to bind parameter 'model' of type 'Sea.Core.Api.Controllers.Sys.QueryModel' using the name '' in request data ...
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinder>2021-05-24 13:53:21.628 +08:00 [DBG] Attempting to bind property 'Sea.Core.Api.Controllers.Sys.QueryModel.Name' of type 'System.String' using the name 'Name' in request data ...
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder>2021-05-24 13:53:21.630 +08:00 [DBG] Could not find a value in the request with name 'Name' for binding property 'Sea.Core.Api.Controllers.Sys.QueryModel.Name' of type 'System.String'.
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder>2021-05-24 13:53:21.635 +08:00 [DBG] Done attempting to bind property 'Sea.Core.Api.Controllers.Sys.QueryModel.Name' of type 'System.String'.
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder>2021-05-24 13:53:21.640 +08:00 [DBG] Done attempting to bind parameter 'model' of type 'Sea.Core.Api.Controllers.Sys.QueryModel'.
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinder>2021-05-24 13:53:21.640 +08:00 [DBG] Done attempting to bind parameter 'model' of type 'Sea.Core.Api.Controllers.Sys.QueryModel'.
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder>2021-05-24 13:53:21.641 +08:00 [DBG] Attempting to validate the bound parameter 'model' of type 'Sea.Core.Api.Controllers.Sys.QueryModel' ...
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder>2021-05-24 13:53:21.643 +08:00 [DBG] Done attempting to validate the bound parameter 'model' of type 'Sea.Core.Api.Controllers.Sys.QueryModel'.
+ <s:Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder>2021-05-24 13:53:21.700 +08:00 [INF] Executing action method Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api) - Validation state: "Valid"
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.704 +08:00 [INF] 开始你的表演:LogInformation
+ <s:Sea.Core.Api.Controllers.Sys.ExampleController>2021-05-24 13:53:21.704 +08:00 [WRN] 开始你的表演:LogWarning
+ <s:Sea.Core.Api.Controllers.Sys.ExampleController>2021-05-24 13:53:21.704 +08:00 [ERR] 开始你的表演:LogError
+ <s:Sea.Core.Api.Controllers.Sys.ExampleController>2021-05-24 13:53:21.705 +08:00 [DBG] 开始你的表演:LogDebug
+ <s:Sea.Core.Api.Controllers.Sys.ExampleController>2021-05-24 13:53:21.709 +08:00 [INF] Executed action method Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 3.0186ms.
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.719 +08:00 [INF] Executed action Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api) in 99.8677ms
+ <s:Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker>2021-05-24 13:53:21.720 +08:00 [INF] Executed endpoint 'Sea.Core.Api.Controllers.Sys.ExampleController.Query (Sea.Core.Api)'
+ <s:Microsoft.AspNetCore.Routing.EndpointMiddleware>2021-05-24 13:53:21.720 +08:00 [DBG] Connection id "0HM8UF0ONR4KM" completed keep alive response.
+ <s:Microsoft.AspNetCore.Server.Kestrel>2021-05-24 13:53:21.724 +08:00 [INF] Request finished HTTP/1.1 GET http://localhost:8081/api/sys/example/query - - - 200 0 - 437.1957ms
+ <s:Microsoft.AspNetCore.Hosting.Diagnostics>

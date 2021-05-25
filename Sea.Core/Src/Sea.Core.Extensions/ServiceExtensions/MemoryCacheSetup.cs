@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Sea.Core.Util;
+using Sea.Core.Util.MemoryCache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,16 @@ namespace Sea.Core.Extensions
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddScoped<ICaching, MemoryCaching>();
-            services.AddSingleton<IMemoryCache>(factory =>
-            {
-                var cache = new MemoryCache(new MemoryCacheOptions());
-                return cache;
-            });
+            //services.AddScoped<ICaching, MemoryCaching>();
+            //services.AddSingleton<IMemoryCache>(factory =>
+            //{
+            //    var cache = new MemoryCache(new MemoryCacheOptions());
+            //    return cache;
+            //});
+
+            services.AddSingleton<RedisHelper>();
+
+            services.AddScoped<ICaching, RedisCacheHandler>();
         }
     }
 }

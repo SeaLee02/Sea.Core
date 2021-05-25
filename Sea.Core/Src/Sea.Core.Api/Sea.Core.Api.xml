@@ -19,7 +19,7 @@
             列子接口
             </summary>
         </member>
-        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.#ctor(Microsoft.Extensions.Logging.ILogger{Sea.Core.Api.Controllers.Sys.ExampleController})">
+        <member name="M:Sea.Core.Api.Controllers.Sys.ExampleController.#ctor(Microsoft.Extensions.Logging.ILogger{Sea.Core.Api.Controllers.Sys.ExampleController},Sea.Core.Util.ICaching)">
             <summary>
             构造函数
             </summary>
