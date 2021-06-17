@@ -90,5 +90,13 @@ namespace Sea.Core.Util.Configuration
             Configuration.Bind(string.Join(":", sections), list);
             return list;
         }
+
+
+        public static T bind<T>(params string[] sections) 
+        {
+            T t = Activator.CreateInstance<T>();
+            Configuration.Bind(string.Join(":", sections), t);
+            return t;
+        }
     }
 }

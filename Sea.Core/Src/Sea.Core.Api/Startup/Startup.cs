@@ -40,7 +40,8 @@ namespace Sea.Core.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-       
+            string a = "420116199412017630";
+            string aa = a.Substring(a.Length-6);
             #region 配置帮助类
             //注册为单例模式
             services.AddSingleton(new Appsettings(Configuration));
@@ -88,17 +89,17 @@ namespace Sea.Core.Api
             services.AddAutoMapperSetup();
 
             //授权，自定义授权
-            services.AddAuthorizationSetup();
-            if (Permissions.IsUseIds4)
-            {
-                //ids4验证
-                services.AddAuthenticationIds4Setup();
-            }
-            else
-            {
-                //Jwt
-                services.AddAuthentication_JWTSetup();
-            }        
+            //services.AddAuthorizationSetup();
+            //if (Permissions.IsUseIds4)
+            //{
+            //    //ids4验证
+            //    services.AddAuthenticationIds4Setup();
+            //}
+            //else
+            //{
+            //    //Jwt
+            //    services.AddAuthentication_JWTSetup();
+            //}        
 
 
             //关闭自动验证
@@ -158,10 +159,10 @@ namespace Sea.Core.Api
         
             app.UseRouting();
 
-            // 先开启认证
-            app.UseAuthentication();
-            // 然后是授权中间件
-            app.UseAuthorization();
+            //// 先开启认证
+            //app.UseAuthentication();
+            //// 然后是授权中间件
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
